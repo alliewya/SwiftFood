@@ -95,6 +95,11 @@ namespace SwiftFood
             }
         }
 
+        public User(string postcode)
+        {
+            Postcode = postcode;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyname)

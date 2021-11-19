@@ -32,6 +32,8 @@ namespace SwiftFood
 
         public ObservableCollection<Restaurant> ActiveRestaurants;
 
+        public User ActiveUser;
+
         private void GenerateTestRestaurants()
         {
             ActiveRestaurants = new ObservableCollection<Restaurant>();

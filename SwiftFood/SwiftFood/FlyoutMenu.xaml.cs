@@ -12,6 +12,7 @@ namespace SwiftFood
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FlyoutMenu : ContentPage
     {
+        App app = (App)Application.Current;
 
         public FlyoutMenu()
         {
@@ -30,8 +31,15 @@ namespace SwiftFood
             });
 
             menuView.ItemsSource = flyoutPageItems;
+
+
+            //Set button to logout if user - login if no user
+            if(app.ActiveUser.Username == null)
+            {
+                btnlogout.Text = "Log In";
+            } 
         }
-    
+
 
     }
 
