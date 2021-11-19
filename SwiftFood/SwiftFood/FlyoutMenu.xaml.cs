@@ -23,16 +23,15 @@ namespace SwiftFood
                 Title = "Browse",
                 TargetType = typeof(Browse)
             });
+            flyoutPageItems.Add(new FlyoutPageItem
+            {
+                Title = "Checkout",
+                TargetType = typeof(Checkout)
+            });
 
             menuView.ItemsSource = flyoutPageItems;
         }
     
-        public class FlyoutPageItem
-        {
-            public string Title { get; set; }
-            public Type TargetType { get; set; }
-        }
-
 
     }
 

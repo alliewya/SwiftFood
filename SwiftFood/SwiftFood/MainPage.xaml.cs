@@ -31,11 +31,11 @@ namespace SwiftFood
 
         void OnItemSelected(object sender, SelectionChangedEventArgs e)
         {
-            var item = e.CurrentSelection as FlyoutPageItem;
+            var item = e.CurrentSelection.FirstOrDefault() as FlyoutPageItem;
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
-                flyoutmenu.menuView.SelectedItem = null;
+                //flyoutmenu.menuView.SelectedItem = null;
                 IsPresented = false;
             }
         }
