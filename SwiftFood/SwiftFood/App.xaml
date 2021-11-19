@@ -4,5 +4,37 @@
              x:Class="SwiftFood.App">
     <Application.Resources>
 
+        <!-- Page Margin -->
+        <Thickness x:Key="PageMargin">20</Thickness>
+
+        <!-- Colors -->
+        <Color x:Key="SwiftOrange">#eb4c37</Color>
+        <Color x:Key="SwiftBlue">#1d4564</Color>
+        <Color x:Key="SwiftDarkGray">#707070</Color>
+        <Color x:Key="SwiftLightGray">#f2f2f2</Color>
+
+        <!-- Navigation Bar Style-->
+        <Style TargetType="{x:Type NavigationPage}">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource SwiftBlue}"/>
+            <Setter Property="BarTextColor" Value="White"/>
+        </Style>
+
+        <!-- Button Styling -->
+        <Style TargetType="Button">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontFamily" Value="BentonBold"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource SwiftOrange}"/>
+        </Style>
+        <Style TargetType="Button" x:Key="ButtonAlt">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontFamily" Value="BentonBold"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource SwiftDarkGray}"/>
+        </Style>
+        <Style TargetType="Button" x:Key="ButtonBlue" BasedOn="{StaticResource ButtonAlt}">
+            <Setter Property="BackgroundColor" Value="{StaticResource SwiftBlue}"/>
+        </Style>
+
     </Application.Resources>
 </Application>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SwiftFood.Checkout">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource SwiftBlue}" 
+                   CornerRadius="0" HeightRequest="40">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="icon.png" HorizontalOptions="Start" VerticalOptions="Start"
+                       HeightRequest="65"/>
+                    <Label Text="Checkout" FontSize="30" FontAttributes="Bold" 
+                           TextColor="{StaticResource SwiftOrange}" Padding="2"/>
+                </StackLayout>
+            </Frame>
+            <!--not sure how to get the above more at the top-->
+            <StackLayout Padding="10" Spacing="1.5">
+                <!--<Label Text="Checkout" FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource SwiftOrange}"/>-->
+
+                <Label Text="Add Discount Code" FontSize="Medium" FontAttributes="Bold"/>
+                <!--not sure how to fill the whole screen width-->
+                <StackLayout Orientation="Horizontal" >
+                    <Entry Placeholder="Enter code here" x:Name="txtDiscountCode"/>
+                    <Button Text="Apply Code" x:Name="btnApplyCode" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+
+                <Label Text="Email Address" FontSize="Medium" FontAttributes="Bold" />
+                <Entry Placeholder="Enter email here" Keyboard="Email" x:Name="txtEmail"/>
+
+                <Label Text="Address Line 1" FontSize="Medium" FontAttributes="Bold" />
+                <Entry Placeholder="" x:Name="txtAdd1"/>
+                <Label Text="Address Line 2" FontSize="Medium" FontAttributes="Bold" />
+                <Entry Placeholder="" x:Name="txtAdd2"/>
+                <Label Text="Post Code" FontSize="Medium" FontAttributes="Bold" />
+                <Entry Placeholder="" x:Name="txtPostcode"/>
+            </StackLayout>
+            
+            <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="85">
+                <StackLayout>
+                    <Label Text="Total Price:" FontSize="Medium" FontAttributes="Bold" 
+                       TextColor="White" Padding="20,0.4"/>
+
+                    <Label Text="Discount:" FontSize="Medium" FontAttributes="Bold" 
+                       TextColor="White" Padding="20,0.4"/>
+
+                    <Button Text="Complete and Pay" x:Name="btnComplete" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

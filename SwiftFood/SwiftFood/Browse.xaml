@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.Browse"
+            >
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource SwiftBlue}" Padding="24" CornerRadius="0">
+                <Label Text="Welcome to Xamarin.Forms!" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+            <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+            <!--<Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+            <Label FontSize="16" Padding="30,24,30,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Learn more at "/>
+                            <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>-->
+            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout  Padding="10">
+                        <Grid BackgroundColor="AliceBlue" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                                <Image Source="{Binding RestImageSource}" BackgroundColor="Black" Grid.Column="0" HeightRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Aspect="Fill"/>
+
+                            <StackLayout Grid.Column="1" BackgroundColor="LightCoral" VerticalOptions="Start">
+                                <Label Text="{Binding RestName}"/>
+                                <Label Text="{Binding RestDescription}"/>
+                                <Label Text="{Binding RestAddress}"/>
+                                <Label Text="{Binding RestOpeningHours}"/>
+                            </StackLayout>
+                        </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Default Button" Margin="10"/>
+            <Button Text="StaticResource ButtonAlt" Margin="10" Style="{StaticResource ButtonAlt}"/>
+            <Button Text="StaticResource ButtonBlue" Margin="10" Style="{StaticResource ButtonBlue}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.OrderHistory">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Order History" FontSize="Large" TextColor="{StaticResource SwiftOrange}" FontAttributes="Bold" Margin="20,40"/>
+            <Label Text="Items" FontSize="Medium" TextColor="{StaticResource SwiftBlue}" FontAttributes="Italic" Margin="170,-20,-300,29"/>
+            <Label Text="Price" FontSize="Medium" TextColor="{StaticResource SwiftBlue}" FontAttributes="Italic" Margin="250,-58.1,-300,29"  />
+            <ListView>
+                
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
