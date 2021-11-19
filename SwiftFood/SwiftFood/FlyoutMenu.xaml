@@ -19,7 +19,7 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-                        <Button Text="Checkout" x:Name="btnCheckout" Clicked="btnCheckout_Clicked"  x:FieldModifier="public"/>
+                        <Button Text="Checkout" x:Name="btnCheckout"   x:FieldModifier="public"/>
                     </StackLayout>
                 </Frame>
                 <Label Text="Eat now!"

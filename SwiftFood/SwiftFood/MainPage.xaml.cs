@@ -43,6 +43,8 @@ namespace SwiftFood
         public void btnCheckout_Clicked(object sender, EventArgs e)
         {
             Detail = new NavigationPage(new Checkout());
+            flyoutmenu.menuView.SelectedItem = null;
+            IsPresented = false;
         }
 
     }
