@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.UserRegistration"
+             Title="User Registration">
+    <ContentPage.Content>
+        <StackLayout Margin="{StaticResource PageMargin}">
+            <StackLayout>
+                <Label Text="Username"/>
+                <Entry x:Name="entryUsername" Text="{Binding Username}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Password"/>
+                <Entry x:Name="entryPassword" IsPassword="True"  Text="{Binding Password}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Email"/>
+                <Entry x:Name="entryEmail"  Text="{Binding Email}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Address Line 1"/>
+                <Entry x:Name="entryAddress1"  Text="{Binding Address1}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Address Line 2"/>
+                <Entry x:Name="entryAddress2"  Text="{Binding Address2}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Postcode"/>
+                <Entry x:Name="entryPostcode"  Text="{Binding Postcode}"/>
+            </StackLayout>
+            <StackLayout Margin="10">
+                <Button x:Name="btnSaveUser" Text="Save" Margin="10" Clicked="btnSaveUser_Clicked"/>
+                <Button x:Name="btnCancel" Text="Cancel" Margin="10" Style="{StaticResource ButtonAlt}" Clicked="btnCancel_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

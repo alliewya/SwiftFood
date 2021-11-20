@@ -47,7 +47,7 @@ namespace SwiftFood
         }
 
         //Address Details
-        private string address1,address2,postcode;
+        private string address1,address2,postcode,email;
 
         public string Address1
         {
@@ -93,6 +93,27 @@ namespace SwiftFood
                     OnPropertyChanged("Postcode");
                 }
             }
+        }
+        
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                if (email != value)
+                {
+                    email = value;
+                    OnPropertyChanged("Email");
+                }
+            }
+        }
+
+        public User()
+        {
+
         }
 
         public User(string postcode)

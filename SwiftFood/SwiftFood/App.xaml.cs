@@ -23,9 +23,10 @@ namespace SwiftFood
             //Create global basket
             ActiveBasket = new Order();
 
+
             MainPage = new NavigationPage(new PostCode());
 
-            //MainPage = new NavigationPage( new MainPage());
+            
         }
 
         public Order ActiveBasket;

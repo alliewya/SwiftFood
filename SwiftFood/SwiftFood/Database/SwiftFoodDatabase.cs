@@ -68,7 +68,36 @@ namespace SwiftFood
             return savestatus;
         }
 
+        public int SaveUser(User user)
+        {
+            int savestatus;
 
+            if(user.Password.Length == 256)
+            {
+                savestatus = Database.Insert(user);
+            } else
+            {
+                User temp = user;
+                //Hash password for storage
+                temp.Password = GetHashString(user.Password);
+
+                // Save to the DB
+                savestatus = Database.Update(temp);
+            }
+            
+            return savestatus;
+        }
+
+        public int DeleteUser(User user)
+        {
+            var savestatus = Database.Delete(user);
+            return savestatus;
+        }
+
+        public List<User> GetUsers()
+        {
+            return Database.Table<User>().ToList();
+        }
 
 
 

@@ -18,10 +18,10 @@
                 <Label Text="Password" FontSize="Medium" FontAttributes="Bold"/>
                 <Entry x:Name="txtPassword" IsPassword="True"/>
                 
-                <Button Text="Login" Margin="10"/>
+                <Button Text="Login" Margin="10" x:Name="btnLogin" Clicked="btnLogin_Clicked"/>
             </StackLayout>
-        
-        
+
+            <Button Text="Register" BackgroundColor="Transparent" BorderColor="Transparent" x:Name="btnRegister" Clicked="btnRegister_Clicked"/>
         </StackLayout>
         
     </ContentPage.Content>
