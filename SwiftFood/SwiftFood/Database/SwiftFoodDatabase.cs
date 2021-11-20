@@ -4,11 +4,15 @@ using System.Text;
 using SQLite;
 using System.IO;
 using System.Security.Cryptography;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace SwiftFood
 {
     class SwiftFoodDatabase
     {
+        App app = (App)Application.Current;
+
         public SQLiteConnection Database;
         public string DBStatus;
 
@@ -45,15 +49,22 @@ namespace SwiftFood
         {
             bool validated = false;
 
-            // Find username in database
-
-
-            // Hash password
+            //Hash password
             string hashedpassword = GetHashString(password);
 
+            // Find username in database (todo -> rewrite sql to check for password also)
+            List<User> tempusers = Database.Query<User>("SELECT * from User WHERE Username = ?", username);
+            Console.WriteLine(tempusers);
 
-            // Compare Hashes
-
+            foreach(User x in tempusers)
+            {
+                if (x.Password == hashedpassword)
+                {
+                    app.ActiveUser = x;
+                    validated = true;
+                    break;
+                }
+            }
 
             return validated;
         }

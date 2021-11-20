@@ -3,6 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SwiftFood.UserRegistration"
              Title="User Registration">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="ValidationMessage">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="ValidationStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="IsVisible" Value="False"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="IsVisible" Value="True"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+        <Style TargetType="Entry" x:Key="PasswordEntryValidation">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="ValidationStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Default"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="OrangeRed"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout Margin="{StaticResource PageMargin}">
             <StackLayout>
@@ -10,8 +50,11 @@
                 <Entry x:Name="entryUsername" Text="{Binding Username}"/>
             </StackLayout>
             <StackLayout>
-                <Label Text="Password"/>
-                <Entry x:Name="entryPassword" IsPassword="True"  Text="{Binding Password}"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="Password"/>
+                    <Label Text="Password must be 6 characters" x:Name="txtpasswordmsg" HorizontalOptions="EndAndExpand" FontAttributes="Bold" TextColor="OrangeRed" HorizontalTextAlignment="End" IsVisible="true" Style="{StaticResource ValidationMessage}" />
+                </StackLayout>
+                <Entry x:Name="entryPassword" IsPassword="True"  Text="{Binding Password}" TextChanged="txtpassword_TextChanged"/>
             </StackLayout>
             <StackLayout>
                 <Label Text="Email"/>

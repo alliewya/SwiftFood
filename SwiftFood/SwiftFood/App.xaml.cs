@@ -25,8 +25,7 @@ namespace SwiftFood
 
 
             MainPage = new NavigationPage(new PostCode());
-
-            
+     
         }
 
         public Order ActiveBasket;
