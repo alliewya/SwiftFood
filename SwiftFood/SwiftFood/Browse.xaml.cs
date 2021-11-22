@@ -22,19 +22,21 @@ namespace SwiftFood
             var restaurants = app.ActiveRestaurants;
             RestaurantCollection.ItemsSource = restaurants;
 
+            txtPostcode.Text = app.ActiveUser.Postcode;
+
         }
 
         //Event handle for selecting a rsturant from collection view
-        //async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    //On selection change in collection, open a new resturant page using selected movie object
-        //    if (((CollectionView)sender).SelectedItem != null)
-        //    {
-        //        Restaurant current = e.CurrentSelection.FirstOrDefault() as Restaurant;
+        async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //On selection change in collection, open a new restaurant page using selected movie object
+            if (((CollectionView)sender).SelectedItem != null)
+           {
+                Restaurant current = e.CurrentSelection.FirstOrDefault() as Restaurant;
 
-        //        await Navigation.PushAsync(new RestaurantPage(current));
-        //        ((CollectionView)sender).SelectedItem = null;
-        //    }
-        //}
+                await Navigation.PushAsync(new Checkout());
+                ((CollectionView)sender).SelectedItem = null;
+            }
+        }
     }
 }

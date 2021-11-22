@@ -5,23 +5,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SwiftFood.LoginPage">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="ValidationMessage">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="ValidationStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Transparent"/> <!--Using transparent colour over 'IsVisable' to preserve layout hight-->
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Red"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+    </ContentPage.Resources>
+
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Login" FontSize="50" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             <Image Source="headericon.png" HorizontalOptions="CenterAndExpand"/>
 
-            <StackLayout Margin="40">
-                
-                <Label Text="Username" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry x:Name="txtUsername"/>
+            <StackLayout Margin="40,10">
+                <Label Text="Incorrect Username or Password" x:Name="txtLoginWarning" HorizontalOptions="Center" 
+                       VerticalOptions="Center" Style="{StaticResource ValidationMessage}" FontSize="Medium"/>
+                <Label Text="Username" FontSize="Medium" FontAttributes="Bold" />
+                <Entry x:Name="txtUsername" Text=""/>
 
-                <Label Text="Password" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry x:Name="txtPassword" IsPassword="True"/>
-                
-                <Button Text="Login" Margin="10"/>
+
+                <Label Text="Password" FontSize="Medium" FontAttributes="Bold" />
+                <Entry x:Name="txtPassword" IsPassword="True" Text="" />
+
+                    <Button Text="Login" Margin="10" x:Name="btnLogin" Clicked="btnLogin_Clicked"/>
             </StackLayout>
-        
-        
+
+            <Button Text="Register" BackgroundColor="Transparent" BorderColor="Transparent" TextColor="{StaticResource SwiftDarkGray}" x:Name="btnRegister" Clicked="btnRegister_Clicked"/>
         </StackLayout>
         
     </ContentPage.Content>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.UserDetails"
+             Title="User Details">
+    <ContentPage.Content>
+        <StackLayout Margin="{StaticResource PageMargin}">
+            <StackLayout>
+                <Label Text="Username"/>
+                <Entry x:Name="entryUsername" Text="{Binding Username}"/>
+            </StackLayout>           
+            <StackLayout>
+                <Label Text="Password"/>
+                <Entry x:Name="entryPassword" IsPassword="True"  Text="{Binding Password}" IsEnabled="False"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Email"/>
+                <Entry x:Name="entryEmail"  Text="{Binding Email}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Address Line 1"/>
+                <Entry x:Name="entryAddress1"  Text="{Binding Address1}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Address Line 2"/>
+                <Entry x:Name="entryAddress2"  Text="{Binding Address2}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Postcode"/>
+                <Entry x:Name="entryPostcode"  Text="{Binding Postcode}"/>
+            </StackLayout>
+            <StackLayout>
+            <Button x:Name="btnSaveUser" Text="Save" Style="{StaticResource ButtonBlue}" Clicked="btnSaveUser_Clicked"/>
+            <Button x:Name="btnCancel" Text="Cancel" Style="{StaticResource ButtonAlt}" Clicked="btnCancel_Clicked"/>
+            <Button x:Name="btnDelete" Text="Delete User" IsVisible="false" FontAttributes="Bold" BackgroundColor="Red" Clicked="btnDelete_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

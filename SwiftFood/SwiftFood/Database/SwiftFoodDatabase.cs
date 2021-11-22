@@ -4,11 +4,15 @@ using System.Text;
 using SQLite;
 using System.IO;
 using System.Security.Cryptography;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace SwiftFood
 {
     class SwiftFoodDatabase
     {
+        App app = (App)Application.Current;
+
         public SQLiteConnection Database;
         public string DBStatus;
 
@@ -45,15 +49,22 @@ namespace SwiftFood
         {
             bool validated = false;
 
-            // Find username in database
-
-
-            // Hash password
+            //Hash password
             string hashedpassword = GetHashString(password);
 
+            // Find username in database (todo -> rewrite sql to check for password also)
+            List<User> tempusers = Database.Query<User>("SELECT * from User WHERE Username = ?", username);
+            Console.WriteLine(tempusers);
 
-            // Compare Hashes
-
+            foreach(User x in tempusers)
+            {
+                if (x.Password == hashedpassword)
+                {
+                    app.ActiveUser = x;
+                    validated = true;
+                    break;
+                }
+            }
 
             return validated;
         }
@@ -68,7 +79,36 @@ namespace SwiftFood
             return savestatus;
         }
 
+        public int SaveUser(User user)
+        {
+            int savestatus;
 
+            if(user.Password.Length == 256)
+            {
+                savestatus = Database.Insert(user);
+            } else
+            {
+                User temp = user;
+                //Hash password for storage
+                temp.Password = GetHashString(user.Password);
+
+                // Save to the DB
+                savestatus = Database.Update(temp);
+            }
+            
+            return savestatus;
+        }
+
+        public int DeleteUser(User user)
+        {
+            var savestatus = Database.Delete(user);
+            return savestatus;
+        }
+
+        public List<User> GetUsers()
+        {
+            return Database.Table<User>().ToList();
+        }
 
 
 

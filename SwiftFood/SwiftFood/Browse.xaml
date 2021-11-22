@@ -8,9 +8,11 @@
             <Frame BackgroundColor="{StaticResource SwiftBlue}" Padding="24" CornerRadius="0">
                 <Label Text="Welcome to Xamarin.Forms!" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
             </Frame>
-            <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-
-            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" >
+            <StackLayout Orientation="Horizontal" Padding="30,10,30,10">
+                <Label Text="Delivering to " FontSize="Title"/>
+                <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="txtPostcode"/>
+            </StackLayout>
+            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" SelectionChanged="OnCollectionViewSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout  Padding="10">

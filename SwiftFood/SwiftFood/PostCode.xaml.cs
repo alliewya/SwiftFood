@@ -12,6 +12,8 @@ namespace SwiftFood
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PostCode : ContentPage
     {
+        App app = (App)Application.Current;
+
         public PostCode()
         {
            
@@ -25,6 +27,9 @@ namespace SwiftFood
             string postcode = PC.Text;
             if (postcode != null)
             {
+                //Set current user to new empty 'temp' user
+                app.ActiveUser = new User(postcode);
+
                 await Navigation.PushModalAsync(new MainPage());
             }
             else
@@ -35,7 +40,8 @@ namespace SwiftFood
         public ICommand GotoLogin => new Command(Gotopage);
         private async void Gotopage()
         {
-            await DisplayAlert("Hello", "You clicked!", "OK");
+            await Navigation.PushAsync(new LoginPage());
+            
         }
 
     }

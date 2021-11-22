@@ -39,9 +39,8 @@
                         <Button Text="Checkout" x:Name="btnCheckout"   x:FieldModifier="public"/>
                     </StackLayout>
                 </Frame>
-                <Label Text="Eat now!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="btnlogout"  x:FieldModifier="public" Text="Logout" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" 
+                        BackgroundColor="Transparent" BorderColor="{StaticResource SwiftBlue}" TextColor="{StaticResource SwiftDarkGray}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.ComponentModel;
-using SQLite;
 
 namespace SwiftFood
 {
-
-    public class User : INotifyPropertyChanged
+    public class UserViewModel : INotifyPropertyChanged
     {
-        [PrimaryKey, AutoIncrement]
+
         public int UserID { get; set; }
 
         private string username, password;
@@ -28,8 +27,8 @@ namespace SwiftFood
                     OnPropertyChanged("Username");
                 }
             }
-        }   
-        
+        }
+
         public string Password
         {
             get
@@ -47,7 +46,7 @@ namespace SwiftFood
         }
 
         //Address Details
-        private string address1,address2,postcode,email;
+        private string address1, address2, postcode,email;
 
         public string Address1
         {
@@ -94,7 +93,6 @@ namespace SwiftFood
                 }
             }
         }
-        
         public string Email
         {
             get
@@ -111,25 +109,56 @@ namespace SwiftFood
             }
         }
 
-        public User()
+        public void Load(User user)
         {
-
+            UserID = user.UserID;
+            Username = user.Username;
+            Password = user.Password;
+            Address1 = user.Address1;
+            Address2 = user.Address2;
+            Postcode = user.Postcode;
+            Email = user.Email;
         }
 
-        public User(string postcode)
+        public void Save(ref User user)
         {
-            Postcode = postcode;
+            user.UserID = UserID;
+            user.Username = Username;
+            user.Password = Password;
+            user.Address1 = Address1;
+            user.Address2 = Address2;
+            user.Postcode = Postcode;
+            user.Email = Email;
+        }
+
+        public void SaveToDB(User user)
+        {
+            SwiftFoodDatabase STDB = new SwiftFoodDatabase();
+            STDB.SaveUser(user);
+        }
+
+        public void SaveNewDB(User user)
+        {
+            SwiftFoodDatabase STDB = new SwiftFoodDatabase();
+            STDB.AddUser(user);
+        }
+
+        public void DeleteUser(User user)
+        {
+            SwiftFoodDatabase STDB = new SwiftFoodDatabase();
+            STDB.DeleteUser(user);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyname)
+        private void OnPropertyChanged(string PropertyName)
         {
             var changed = PropertyChanged;
             if (changed != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
             }
         }
+
     }
 }

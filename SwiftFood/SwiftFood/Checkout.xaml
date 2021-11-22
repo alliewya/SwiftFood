@@ -9,10 +9,10 @@
         <Frame BackgroundColor="{StaticResource SwiftBlue}" 
                    CornerRadius="0" HeightRequest="40">
             <StackLayout Orientation="Horizontal">
-                <Image Source="icon.png" HorizontalOptions="Start" VerticalOptions="Start"
+                <Image Source="icon.png" HorizontalOptions="Start" VerticalOptions="Center"
                        HeightRequest="65"/>
                 <Label Text="Checkout" FontSize="30" FontAttributes="Bold" 
-                           TextColor="{StaticResource SwiftOrange}" Padding="2"/>
+                           TextColor="{StaticResource SwiftOrange}" Padding="2" VerticalOptions="Center"/>
             </StackLayout>
         </Frame>
     </NavigationPage.TitleView>

@@ -8,7 +8,7 @@
             <Image x:Name="Logo" WidthRequest="200"  HeightRequest="200"></Image>
             <Label Text="Enter your Postcode" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="{StaticResource SwiftBlue}"/>
             <Entry Placeholder="Enter Postcode" x:Name="PC"></Entry>
-            <Button Text="Find Resturant" WidthRequest="200"  HorizontalOptions="Center" x:Name="Find" Clicked="Find_Clicked"></Button>
+            <Button Text="Find Restaurants" WidthRequest="200"  HorizontalOptions="Center" x:Name="Find" Clicked="Find_Clicked"></Button>
             <Label Text="Login" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource SwiftBlue}" FontAttributes="Italic">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding GotoLogin, Source={x:Reference PostPage}}"/>
