@@ -15,10 +15,10 @@ namespace SwiftFood
 
         App app = (App)Application.Current;
 
-        public Browse()
+        public Browse(string postcode)
         {
             InitializeComponent();
-
+            NearPostcode.Text = "Restaurants Near " + postcode + ":";
             var restaurants = app.ActiveRestaurants;
             RestaurantCollection.ItemsSource = restaurants;
 
@@ -29,14 +29,30 @@ namespace SwiftFood
         //Event handle for selecting a rsturant from collection view
         async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //On selection change in collection, open a new restaurant page using selected movie object
-            if (((CollectionView)sender).SelectedItem != null)
-           {
-                Restaurant current = e.CurrentSelection.FirstOrDefault() as Restaurant;
 
-                await Navigation.PushAsync(new Checkout());
+            //On selection change in collection, open a new resturant page using selected movie object
+            if (((CollectionView)sender).SelectedItem != null)
+            {
+                Restaurant current = e.CurrentSelection.FirstOrDefault() as Restaurant;
+                app.ActiveResturant = current;
+                await Navigation.PushModalAsync(new RestaurantPage());
                 ((CollectionView)sender).SelectedItem = null;
+               
+              
+            }
+            else
+            {
+                return;
             }
         }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var search = e.NewTextValue;
+            var queriedresturant = from Rest in app.ActiveRestaurants where (Rest.RestName.ToLower().Contains(search.ToLower())) select Rest;
+            RestaurantCollection.ItemsSource = queriedresturant;
+           
+        }
+
     }
 }

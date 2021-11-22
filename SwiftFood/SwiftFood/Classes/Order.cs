@@ -38,10 +38,10 @@ namespace SwiftFood
             switch (Size)
             {
                 case "small":
-                    ItemTotal = (Price - 2) * Qty;
+                    ItemTotal = Price * Qty;
                     break;
                 case "medium":
-                    ItemTotal = Price * Qty;
+                    ItemTotal = (Price + 1) * Qty;
                     break;
                 case "large":
                     ItemTotal = (Price + 2) * Qty;

@@ -27,8 +27,9 @@ namespace SwiftFood
             string postcode = PC.Text;
             if (postcode != null)
             {
+
                 //Set current user to new empty 'temp' user
-                app.ActiveUser = new User(postcode);
+                app.ActiveUser = new User(postcode);  //await Navigation.PushModalAsync(new Browse(PC.Text));
 
                 await Navigation.PushModalAsync(new MainPage());
             }
@@ -41,7 +42,7 @@ namespace SwiftFood
         private async void Gotopage()
         {
             await Navigation.PushAsync(new LoginPage());
-            
+
         }
 
     }

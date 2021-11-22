@@ -65,6 +65,7 @@ namespace SwiftFood
 
         public string RestOpeningHours { get; set; }
 
+        public string OpeningHour => $"Opening Hours: {RestOpeningHours}";
 
         public event PropertyChangedEventHandler PropertyChanged;
 

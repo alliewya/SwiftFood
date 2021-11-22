@@ -62,7 +62,7 @@ namespace SwiftFood
                 }
             }
         }
-
+        public string ShowPrice => $"£ {Price}";
 
 
         public Food(string name, decimal price, string description = "No description entered")
