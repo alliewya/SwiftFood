@@ -15,14 +15,15 @@ namespace SwiftFood
 
         App app = (App)Application.Current;
 
-        public Browse(string postcode)
+        public Browse()
         {
+            string postcode = app.ActiveUser.Postcode;
+
             InitializeComponent();
             NearPostcode.Text = "Restaurants Near " + postcode + ":";
             var restaurants = app.ActiveRestaurants;
             RestaurantCollection.ItemsSource = restaurants;
 
-            txtPostcode.Text = app.ActiveUser.Postcode;
 
         }
 
