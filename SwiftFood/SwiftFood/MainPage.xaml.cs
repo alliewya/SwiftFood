@@ -10,7 +10,7 @@ namespace SwiftFood
 {
     public partial class MainPage : FlyoutPage
     {
-
+        App app = (App)Application.Current;
         public FlyoutMenu flyoutmenu;
 
         public MainPage()
@@ -27,15 +27,17 @@ namespace SwiftFood
             //Subscribe to flyout menu checkout button
             flyoutmenu.menuView.SelectionChanged += OnItemSelected;
             flyoutmenu.btnCheckout.Clicked += btnCheckout_Clicked;
+            flyoutmenu.btnlogout.Clicked += btnLogout_Clicked;
+           
         }
 
         void OnItemSelected(object sender, SelectionChangedEventArgs e)
         {
-            var item = e.CurrentSelection as FlyoutPageItem;
+            var item = e.CurrentSelection.FirstOrDefault() as FlyoutPageItem;
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
-                flyoutmenu.menuView.SelectedItem = null;
+                //flyoutmenu.menuView.SelectedItem = null;
                 IsPresented = false;
             }
         }
@@ -47,6 +49,20 @@ namespace SwiftFood
             IsPresented = false;
         }
 
+
+        private async void btnLogout_Clicked(object sender, EventArgs e)
+        {
+            if (app.ActiveUser.Username == null)
+            {
+                Detail = new NavigationPage(new LoginPage());
+                IsPresented = false;
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new PostCode()));
+                app.ActiveUser = null;
+            }
+        }
     }
 
     public class FlyoutPageItem

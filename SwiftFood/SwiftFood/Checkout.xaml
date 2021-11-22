@@ -5,17 +5,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SwiftFood.Checkout">
+    <NavigationPage.TitleView>
+        <Frame BackgroundColor="{StaticResource SwiftBlue}" 
+                   CornerRadius="0" HeightRequest="40">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="icon.png" HorizontalOptions="Start" VerticalOptions="Center"
+                       HeightRequest="65"/>
+                <Label Text="Checkout" FontSize="30" FontAttributes="Bold" 
+                           TextColor="{StaticResource SwiftOrange}" Padding="2" VerticalOptions="Center"/>
+            </StackLayout>
+        </Frame>
+    </NavigationPage.TitleView>
+    
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="{StaticResource SwiftBlue}" 
-                   CornerRadius="0" HeightRequest="40">
-                <StackLayout Orientation="Horizontal">
-                    <Image Source="icon.png" HorizontalOptions="Start" VerticalOptions="Start"
-                       HeightRequest="65"/>
-                    <Label Text="Checkout" FontSize="30" FontAttributes="Bold" 
-                           TextColor="{StaticResource SwiftOrange}" Padding="2"/>
-                </StackLayout>
-            </Frame>
+
             <!--not sure how to get the above more at the top-->
             <StackLayout Padding="10" Spacing="1.5">
                 <!--<Label Text="Checkout" FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource SwiftOrange}"/>-->

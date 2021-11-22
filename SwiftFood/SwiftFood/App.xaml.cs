@@ -20,12 +20,13 @@ namespace SwiftFood
 
             GenerateTestRestaurants();
 
+
             //Create global basket
             ActiveBasket = new Order();
 
-            MainPage = new NavigationPage(new PostCode());
 
-            //MainPage = new NavigationPage( new MainPage());
+            MainPage = new NavigationPage(new PostCode());
+     
         }
 
         public Order ActiveBasket;
@@ -36,6 +37,10 @@ namespace SwiftFood
 
 
         public Order ActiveOrder { get; set; }
+
+        public User ActiveUser;
+
+
         private void GenerateTestRestaurants()
         {
             ActiveRestaurants = new ObservableCollection<Restaurant>();

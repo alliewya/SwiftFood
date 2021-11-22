@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.ListUsers"
+             Title="Users List">
+    <ContentPage.Content>
+        <StackLayout Margin="{StaticResource PageMargin}">
+            <StackLayout>
+                <Label Text=""
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <Frame Padding="20">
+                <ListView x:Name="usersLV" ItemSelected="usersLV_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Username}" FontSize="Medium" VerticalOptions="Center"/>
+                                    <Label Text="{Binding Email}" FontSize="Small" TextColor="{StaticResource SwiftDarkGray}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                    <Label Text="{Binding UserID}" FontSize="Small" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

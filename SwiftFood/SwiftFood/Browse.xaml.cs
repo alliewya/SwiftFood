@@ -22,11 +22,14 @@ namespace SwiftFood
             var restaurants = app.ActiveRestaurants;
             RestaurantCollection.ItemsSource = restaurants;
 
+            txtPostcode.Text = app.ActiveUser.Postcode;
+
         }
 
         //Event handle for selecting a rsturant from collection view
         async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             //On selection change in collection, open a new resturant page using selected movie object
             if (((CollectionView)sender).SelectedItem != null)
             {
@@ -50,5 +53,6 @@ namespace SwiftFood
             RestaurantCollection.ItemsSource = queriedresturant;
            
         }
+
     }
 }
