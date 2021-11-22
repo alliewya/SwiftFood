@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SwiftFood.Confirmation">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" Spacing="35">
+            <Image Source="headericon.png" HorizontalOptions="CenterAndExpand"/>
+            
+            <Label Text="Enjoy Your Meal!" TextColor="{StaticResource SwiftOrange}"
+                   FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            
+            <Label Text="Your food is on the way" FontSize="Title" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+
+            <Button Text="Return to Browse" BackgroundColor="{StaticResource SwiftBlue}"
+                    x:Name="btn_Return2Browse" Clicked="btn_Return2Browse_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

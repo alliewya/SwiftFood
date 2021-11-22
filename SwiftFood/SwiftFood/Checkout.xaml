@@ -5,52 +5,50 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SwiftFood.Checkout">
+
+    
     <NavigationPage.TitleView>
         <Frame BackgroundColor="{StaticResource SwiftBlue}" 
-                   CornerRadius="0" HeightRequest="40">
+                   CornerRadius="0" HeightRequest="50">
             <StackLayout Orientation="Horizontal">
                 <Image Source="icon.png" HorizontalOptions="Start" VerticalOptions="Center"
                        HeightRequest="65"/>
-                <Label Text="Checkout" FontSize="30" FontAttributes="Bold" 
-                           TextColor="{StaticResource SwiftOrange}" Padding="2" VerticalOptions="Center"/>
             </StackLayout>
         </Frame>
     </NavigationPage.TitleView>
     
     <ContentPage.Content>
         <StackLayout>
-
-            <!--not sure how to get the above more at the top-->
             <StackLayout Padding="10" Spacing="1.5">
-                <!--<Label Text="Checkout" FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource SwiftOrange}"/>-->
-
-                <Label Text="Add Discount Code" FontSize="Medium" FontAttributes="Bold"/>
-                <!--not sure how to fill the whole screen width-->
+                <Label Text="Checkout"  FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="36"/>
+                <Label Text="Add Discount Code" FontSize="{StaticResource }"/>
+                
                 <StackLayout Orientation="Horizontal" >
-                    <Entry Placeholder="Enter code here" x:Name="txtDiscountCode"/>
-                    <Button Text="Apply Code" x:Name="btnApplyCode" HorizontalOptions="EndAndExpand"/>
+                    <Entry Placeholder="Enter Code(ABC123)" x:Name="txtDiscountCode"/>
+                    <Button Text="Apply Code" x:Name="btnApplyCode" HorizontalOptions="EndAndExpand" Clicked="btnApplyCode_Clicked"/>
                 </StackLayout>
 
-                <Label Text="Email Address" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="Email Address" FontSize="Medium"/>
                 <Entry Placeholder="Enter email here" Keyboard="Email" x:Name="txtEmail"/>
 
-                <Label Text="Address Line 1" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="Address Line 1" FontSize="Medium"/>
                 <Entry Placeholder="" x:Name="txtAdd1"/>
-                <Label Text="Address Line 2" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="Address Line 2" FontSize="Medium"/>
                 <Entry Placeholder="" x:Name="txtAdd2"/>
-                <Label Text="Post Code" FontSize="Medium" FontAttributes="Bold" />
-                <Entry Placeholder="" x:Name="txtPostcode"/>
+                <Label Text="Post Code" FontSize="Medium"/>
+                <Entry Placeholder="" x:Name="txtPostcode" MaxLength="8"/>
             </StackLayout>
             
-            <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="85">
+            <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="95" VerticalOptions="EndAndExpand">
                 <StackLayout>
-                    <Label Text="Total Price:" FontSize="Medium" FontAttributes="Bold" 
-                       TextColor="White" Padding="20,0.4"/>
+                    <Label Text="Total Price: £" FontSize="Medium" FontAttributes="Bold" 
+                       TextColor="White" Padding="20,0.4" x:Name="txtTotalPrice"/>
 
-                    <Label Text="Discount:" FontSize="Medium" FontAttributes="Bold" 
-                       TextColor="White" Padding="20,0.4"/>
+                    <Label Text="Discount: £" FontSize="Medium" FontAttributes="Bold" 
+                       TextColor="White" Padding="20,0.4" x:Name="txtDiscount"/>
 
-                    <Button Text="Complete and Pay" x:Name="btnComplete" HorizontalOptions="EndAndExpand"/>
+                    <Button Text="Complete and Pay" x:Name="btnComplete" 
+                            HorizontalOptions="EndAndExpand" Clicked="btnComplete_Clicked"/>
                 </StackLayout>
             </Frame>
         </StackLayout>
