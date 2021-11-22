@@ -24,6 +24,10 @@ namespace SwiftFood
 
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
+            if(txtUsername.Text == "" || txtPassword.Text == "")
+            {
+                return;
+            }
             // Bypass Login to get to admin -> todo add admin user
             if(txtUsername.Text == "admin")
             {
