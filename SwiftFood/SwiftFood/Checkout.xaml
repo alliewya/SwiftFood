@@ -21,7 +21,7 @@
         <StackLayout>
             <StackLayout Padding="10" Spacing="1.5">
                 <Label Text="Checkout"  FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="36"/>
-                <Label Text="Add Discount Code" FontSize="{StaticResource }"/>
+                <Label Text="Add Discount Code" FontSize="Medium"/>
                 
                 <StackLayout Orientation="Horizontal" >
                     <Entry Placeholder="Enter Code(ABC123)" x:Name="txtDiscountCode"/>
