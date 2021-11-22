@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.RestaurantPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource SwiftBlue}" Padding="24" CornerRadius="0">
+                <Image x:Name="Logo" WidthRequest="200"  HeightRequest="80" Source="icon.png"></Image>
+            </Frame>
+            <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding RestName}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="36"/>
+            <Image Source="{Binding RestImageSource}" WidthRequest="150" HeightRequest="150" HorizontalOptions="End" />
+            </StackLayout>
+            <Label Text="{Binding RestAddress}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
+            <Label Text="{Binding OpeningHour}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
+            <Button Text="Back to Resturants list" x:Name="Return" Clicked="Return_Clicked" HorizontalOptions="Center" WidthRequest="200" BackgroundColor="{StaticResource SwiftDarkGray}"></Button>
+            <CollectionView x:Name="FoodCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" SelectionChanged="OnCollectionViewSelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout  Padding="10">
+                            <Grid BackgroundColor="AliceBlue" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="pasta.png" BackgroundColor="Black" Grid.Column="0" HeightRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Aspect="Fill" />
+                                <StackLayout Grid.Column="1" BackgroundColor="LightCoral" VerticalOptions="Start">
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding Description}"/>
+                                    <Label Text="{Binding ShowPrice}"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

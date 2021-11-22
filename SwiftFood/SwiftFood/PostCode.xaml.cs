@@ -25,7 +25,7 @@ namespace SwiftFood
             string postcode = PC.Text;
             if (postcode != null)
             {
-                await Navigation.PushModalAsync(new MainPage());
+                await Navigation.PushModalAsync(new Browse(PC.Text));
             }
             else
             {
@@ -35,7 +35,7 @@ namespace SwiftFood
         public ICommand GotoLogin => new Command(Gotopage);
         private async void Gotopage()
         {
-            await DisplayAlert("Hello", "You clicked!", "OK");
+            await Navigation.PushAsync(new LoginPage());
         }
 
     }

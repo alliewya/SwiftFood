@@ -20,7 +20,7 @@ namespace SwiftFood
             //Initialise and set flyout menu page and browse page as detail page
             flyoutmenu = new FlyoutMenu();
             Flyout = flyoutmenu;
-            Detail = new NavigationPage(new Browse());
+            Detail = new NavigationPage(new Browse(""));
 
 
 
