@@ -70,7 +70,7 @@
             </StackLayout>
             <StackLayout>
                 <Label Text="Postcode"/>
-                <Entry x:Name="entryPostcode"  Text="{Binding Postcode}"/>
+                <Entry x:Name="entryPostcode"  Text="{Binding Postcode}" MaxLength="7"/>
             </StackLayout>
             <StackLayout Margin="10">
                 <Button x:Name="btnSaveUser" Text="Save" Margin="10" Clicked="btnSaveUser_Clicked"/>
