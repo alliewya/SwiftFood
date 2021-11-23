@@ -14,11 +14,28 @@ namespace SwiftFood
     {
         App app = (App)Application.Current;
         string size = "small";
+
+        OrderItem CurrentOrderItem;
+
         public FoodPage(string name)
         {
             InitializeComponent();
+
+            CurrentOrderItem = new OrderItem(app.ActiveFood, 1, "medium");
+            
+            //Binding contexts
+            txtItemTotal.BindingContext = CurrentOrderItem;
+            txtQTY.BindingContext = CurrentOrderItem;
+            RadioSize.BindingContext = CurrentOrderItem;
+
             //this.BindingContext = new OrderItem(app.ActiveFood, 1, "small");
+
+            //Dynamic Text
             Foodname.Text = "Item to Order: " + name;
+            smallprice.Text = CurrentOrderItem.PriceAtSize("small").ToString();
+            mediumprice.Text = CurrentOrderItem.PriceAtSize("medium").ToString();
+            largeprice.Text = CurrentOrderItem.PriceAtSize("large").ToString();
+
         }
        
         private void Qtyplus_Clicked(object sender, EventArgs e)
@@ -29,6 +46,7 @@ namespace SwiftFood
                 plus++;
             }
             txtQTY.Text = Convert.ToString(plus);
+            CurrentOrderItem.Qty = plus;
         }
 
         private void Qtyminus_Clicked(object sender, EventArgs e)
@@ -39,18 +57,21 @@ namespace SwiftFood
                 plus--;
             }
             txtQTY.Text = Convert.ToString(plus);
+            CurrentOrderItem.Qty = plus;
         }
 
-        private void Addtobasket_Clicked(object sender, EventArgs e)
+        private async void Addtobasket_Clicked(object sender, EventArgs e)
         {
             int QTy = Convert.ToInt32(txtQTY.Text);
             //OrderItem orderItem = new OrderItem(app.ActiveFood, QTy, size);
-            app.ActiveBasket.AddToOrder(app.ActiveFood, QTy, size);
+            //app.ActiveBasket.AddToOrder(app.ActiveFood, QTy, size);
+            app.ActiveBasket.AddOrderItem(CurrentOrderItem);
+            await Navigation.PopAsync();
         }
 
         private void Return_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopModalAsync();
+            Navigation.PopAsync();
         }
 
         private void Calculate_Clicked(object sender, EventArgs e)
@@ -67,22 +88,22 @@ namespace SwiftFood
         {
         
             size = "small";
+            CurrentOrderItem.Size = "small";
         }
 
         private void Medium_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
            
             size = "medium";
+            CurrentOrderItem.Size = "medium";
         }
 
         private void Large_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             size = "large";
+            CurrentOrderItem.Size = "large";
         }
 
-        private void Calculate_Clicked_1(object sender, EventArgs e)
-        {
 
-        }
     }
     }

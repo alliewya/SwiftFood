@@ -58,11 +58,16 @@ namespace SwiftFood
                 if (price != value)
                 {
                     price = decimal.Round(value, 2);
+                    if (price <= 2)
+                    {
+                        price = 2.01m; //Ensure price is never 0!
+                    }
                     OnPropertyChanged("Price");
                 }
             }
         }
-        public string ShowPrice => $"£ {Price}";
+        
+        //public string ShowPrice => $"£ {Price}";
 
 
         public Food(string name, decimal price, string description = "No description entered")

@@ -27,7 +27,7 @@ namespace SwiftFood
             {
                 Food current = e.CurrentSelection.FirstOrDefault() as Food;
                 app.ActiveFood = current;
-                await Navigation.PushModalAsync(new FoodPage(app.ActiveFood.Name));
+                await Navigation.PushAsync(new FoodPage(app.ActiveFood.Name));
                 ((CollectionView)sender).SelectedItem = null;
 
             }

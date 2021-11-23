@@ -10,12 +10,60 @@ namespace SwiftFood
     public class OrderItem : Food
     //A food item present in an order
     {
+        
+        private decimal itemtotal;
 
-        public decimal ItemTotal;
+        public decimal ItemTotal
+        {
+            get
+            {
+                return itemtotal;
+            }
+            set
+            {
+                if (itemtotal != value)
+                {
+                    itemtotal = value;
+                    OnPropertyChanged("ItemTotal");
+                }
+            }
+        }
 
-        public string Size;
+        private string size;
 
-        public int Qty;
+        public string Size
+        {
+            get
+            { return size; }
+            set
+            {
+                if( size != value)
+                {
+                    size = value;
+                    CalculateTotal();
+                    OnPropertyChanged("Size");
+                }
+
+            }
+        }
+
+
+        private int qty;
+        public int Qty
+        {
+            get
+            { return qty; }
+            set
+            {
+                if (qty != value)
+                {
+                    qty = value;
+                    CalculateTotal();
+                    OnPropertyChanged("Qty");
+                }
+
+            }
+        }
 
 
         //Properties for order history
@@ -41,11 +89,26 @@ namespace SwiftFood
                     ItemTotal = Price * Qty;
                     break;
                 case "medium":
-                    ItemTotal = (Price + 1) * Qty;
-                    break;
-                case "large":
                     ItemTotal = (Price + 2) * Qty;
                     break;
+                case "large":
+                    ItemTotal = (Price + 4) * Qty;
+                    break;
+            }
+        }
+
+        public decimal PriceAtSize(string size)
+        {
+            switch (size)
+            {
+                case "small":
+                    return (Price);
+                case "medium":
+                    return (Price + 2);
+                case "large":
+                    return (Price + 4);
+                default:
+                    return (Price);
             }
         }
 
@@ -63,6 +126,8 @@ namespace SwiftFood
 
         public decimal Discount;
 
+        public int ItemCount;
+
         [PrimaryKey, AutoIncrement]
         public int OrderID { get; set; }
 
@@ -76,6 +141,7 @@ namespace SwiftFood
         {
             OrderItems = new ObservableCollection<OrderItem>();
             Discount = 0;
+            ItemCount = 0;
             UpdateTotal();
 
             OrderDateTime = DateTime.Now;
@@ -89,19 +155,31 @@ namespace SwiftFood
             OrderItems.Add(addition);
             UpdateTotal();
             OnPropertyChanged("OrderItems");
+            OnPropertyChanged("ItemCount");
+        }
+
+        public void AddOrderItem(OrderItem item)
+        {
+            OrderItems.Add(item);
+            UpdateTotal();
+            OnPropertyChanged("OrderItems");
+            OnPropertyChanged("ItemCount");
         }
 
         public void UpdateTotal()
             //Calculate the total of all items in basket and add/apply discount
         {
             OrderTotal = 0;
-            foreach(OrderItem x in OrderItems)
+            ItemCount = 0;
+            foreach (OrderItem x in OrderItems)
             {
+                ItemCount += x.Qty;
                 OrderTotal += x.ItemTotal;
             }
 
             OrderTotal -= Discount;
             OnPropertyChanged("OrderTotal");
+            OnPropertyChanged("ItemCount");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

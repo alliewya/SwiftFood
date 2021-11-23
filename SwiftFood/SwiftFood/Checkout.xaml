@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="SwiftFood.Checkout">
     <NavigationPage.TitleView>
+<<<<<<< Updated upstream
         <Frame BackgroundColor="{StaticResource SwiftBlue}" 
                    CornerRadius="0" HeightRequest="40">
             <StackLayout Orientation="Horizontal">
@@ -15,6 +16,9 @@
                            TextColor="{StaticResource SwiftOrange}" Padding="2" VerticalOptions="Center"/>
             </StackLayout>
         </Frame>
+=======
+        <Image Source="titleimg.png" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
+>>>>>>> Stashed changes
     </NavigationPage.TitleView>
     
     <ContentPage.Content>
