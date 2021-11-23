@@ -46,10 +46,10 @@
                     </DataTemplate>
             </CollectionView.ItemTemplate>
             </CollectionView>
-            <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="20">    
+            <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="20">
                 <StackLayout x:Name="scrollprompt" Orientation="Horizontal" HorizontalOptions="End">
-                    <Image Source="arrowdownsolid.png" x:Name="scrollIcon" IsVisible="True"/>
                     <Label x:Name="txtScroll" Text="Scroll for more" FontSize="Small" TextColor="{StaticResource SwiftLightGray}"/>
+                    <Image Source="arrowdownsolid.png" x:Name="scrollIcon" />
                 </StackLayout>
             </Frame>
             <!--<Button Text="Default Button" Margin="10"/>
