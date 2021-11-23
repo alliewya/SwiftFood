@@ -2,49 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SwiftFood.Browse"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat;assembly=Xamarin.Forms.Core"
+             android:NavigationPage.BarHeight="175"
             >
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="{StaticResource SwiftBlue}" Padding="24" CornerRadius="0">
-                <Image x:Name="Logo" WidthRequest="200"  HeightRequest="80" Source="icon.png"></Image>
-            </Frame>
-
-            <Label x:Name="NearPostcode" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
-            <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
-
-            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" SelectionChanged="OnCollectionViewSelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout  Padding="10">
-            <!--<StackLayout Orientation="Horizontal" Padding="30,10,30,10">
-                <Label Text="Delivering to " FontSize="Title"/>
-                <Label Text="" FontSize="Title" FontAttributes="Bold" x:Name="txtPostcode"/>
-            </StackLayout>
-            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" SelectionChanged="OnCollectionViewSelectionChanged">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout  Padding="10">-->
-
-                        <Grid BackgroundColor="AliceBlue" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                                <Image Source="{Binding RestImageSource}" BackgroundColor="Black" Grid.Column="0" HeightRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Aspect="Fill" />
-                                <StackLayout Grid.Column="1" BackgroundColor="LightCoral" VerticalOptions="Start">
-                                <Label Text="{Binding RestName}"/>
-                                <Label Text="{Binding RestDescription}"/>
-                                <Label Text="{Binding RestAddress}"/>
-                                <Label Text="{Binding OpeningHour}"/>
-                            </StackLayout>
-                        </Grid>
+            <Frame BackgroundColor="{StaticResource SwiftOrange}" Padding="0,5,0,5" CornerRadius="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="20,10">
+                    <!--<Image Source="swiftfoodsmall.png" HorizontalOptions="Center" VerticalOptions="Center"
+                       HeightRequest="100"/>-->
+                    <Image Source="icon.png" HorizontalOptions="Center" VerticalOptions="Center"
+                       HeightRequest="100"/>
+                    <StackLayout VerticalOptions="Center" Padding="20,0,0,0">
+                        <Label Text="Restaurants Near" VerticalOptions="Center" FontFamily="BentonBold" HorizontalOptions="Center" TextColor="{StaticResource SwiftLightGray}" FontSize="24"/>
+                        <Label x:Name="NearPostcode" FontFamily="BentonRegular"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource SwiftLightGray}" FontSize="28"/>
                     </StackLayout>
-                </DataTemplate>
+                </StackLayout>
+            </Frame>
+            <!--<Frame BackgroundColor="Aqua">-->
+                <StackLayout Margin="20">
+                    <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
+                </StackLayout>
+            <!--</Frame>-->
+            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" VerticalScrollBarVisibility="Always"  SelectionChanged="OnCollectionViewSelectionChanged" Scrolled="OnCollectionViewScrolled">
+            <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <RelativeLayout  Margin="0,15">  <!--It is stupid to use relative layout here over grid but grid has a bug with images! And this gives a nice effect! -->
+                            <Image Source="{Binding RestImageSource}" BackgroundColor="Black"  Aspect="AspectFill"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
+                                    />
+                            <StackLayout BackgroundColor="{StaticResource SwiftLightGray}" VerticalOptions="FillAndExpand" 
+                                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.33}"
+                                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.66}"
+                                         Opacity="0.9" Padding="10" Margin="0,10">
+                                <Label Text="{Binding RestName}" FontSize="Large" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" HorizontalOptions="Center"/>
+                                <Label Text="{Binding RestDescription}" FontSize="Medium" TextColor="{StaticResource SwiftDarkGray}" HorizontalOptions="Center"/>
+                                <Label Text="{Binding RestAddress}" FontSize="Small" TextColor="{StaticResource SwiftDarkGray}" HorizontalOptions="Center"/>
+                                <Label Text="{Binding OpeningHour}" TextColor="{StaticResource SwiftDarkGray}" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </RelativeLayout>
+                        </Frame>
+                    </DataTemplate>
             </CollectionView.ItemTemplate>
             </CollectionView>
+            <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="20">    
+                <StackLayout x:Name="scrollprompt" Orientation="Horizontal" HorizontalOptions="End">
+                    <Image Source="arrowdownsolid.png" x:Name="scrollIcon" IsVisible="True"/>
+                    <Label x:Name="txtScroll" Text="Scroll for more" FontSize="Small" TextColor="{StaticResource SwiftLightGray}"/>
+                </StackLayout>
+            </Frame>
             <!--<Button Text="Default Button" Margin="10"/>
             <Button Text="StaticResource ButtonAlt" Margin="10" Style="{StaticResource ButtonAlt}"/>
             <Button Text="StaticResource ButtonBlue" Margin="10" Style="{StaticResource ButtonBlue}"/>-->

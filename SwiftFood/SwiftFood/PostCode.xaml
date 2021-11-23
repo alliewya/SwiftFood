@@ -4,12 +4,20 @@
              x:Class="SwiftFood.PostCode"
              xmlns:local="clr-namespace:SwiftFood" x:Name="PostPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Image x:Name="Logo" WidthRequest="200"  HeightRequest="200"></Image>
-            <Label Text="Enter your Postcode" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="{StaticResource SwiftBlue}"/>
-            <Entry Placeholder="Enter Postcode" x:Name="PC"></Entry>
-            <Button Text="Find Restaurants" WidthRequest="200"  HorizontalOptions="Center" x:Name="Find" Clicked="Find_Clicked"></Button>
-            <Label Text="Login" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource SwiftBlue}" FontAttributes="Italic">
+        <StackLayout VerticalOptions="FillAndExpand" Padding="40">
+            <Grid VerticalOptions="FillAndExpand" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image x:Name="Logo" WidthRequest="200"  HeightRequest="200"></Image>
+                <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <Label Text="Enter Your Postcode" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="{StaticResource SwiftBlue}"/>
+                    <Entry  x:Name="PC" FontSize="36" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}"></Entry>
+                    <Button Text="Find Restaurants"  HorizontalOptions="Center" FontAttributes="Bold" Padding="20" Margin="30" x:Name="Find" Clicked="Find_Clicked"></Button>
+                </StackLayout>
+            </Grid>
+            <Label Text="Login" HorizontalOptions="Center" VerticalOptions="EndAndExpand" FontSize="Medium" TextColor="{StaticResource SwiftBlue}" FontAttributes="Italic">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding GotoLogin, Source={x:Reference PostPage}}"/>
                     </Label.GestureRecognizers>
