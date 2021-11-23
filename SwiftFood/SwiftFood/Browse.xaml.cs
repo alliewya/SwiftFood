@@ -20,7 +20,8 @@ namespace SwiftFood
             string postcode = app.ActiveUser.Postcode;
 
             InitializeComponent();
-            NearPostcode.Text = "Restaurants Near " + postcode + ":";
+            //NearPostcode.Text = "Restaurants Near " + postcode + ":";
+            NearPostcode.Text = postcode;
             var restaurants = app.ActiveRestaurants;
             RestaurantCollection.ItemsSource = restaurants;
 
@@ -36,10 +37,8 @@ namespace SwiftFood
             {
                 Restaurant current = e.CurrentSelection.FirstOrDefault() as Restaurant;
                 app.ActiveResturant = current;
-                await Navigation.PushModalAsync(new RestaurantPage());
+                await Navigation.PushAsync(new RestaurantPage());
                 ((CollectionView)sender).SelectedItem = null;
-               
-              
             }
             else
             {
@@ -55,5 +54,12 @@ namespace SwiftFood
            
         }
 
+        private void OnCollectionViewScrolled(object sender, ItemsViewScrolledEventArgs e)
+        {
+            //Make the scroll for more prompt disappear when scrolling down
+
+            //txtScroll.Text = e.VerticalOffset.ToString() + " " + RestaurantCollection.Height.ToString();
+            scrollprompt.Opacity = (1 - (e.VerticalOffset / (RestaurantCollection.Height-76)));
+        }
     }
 }
