@@ -65,6 +65,24 @@ namespace SwiftFood
             }
         }
 
+        private string restaurantname;
+        public string RestaurantName
+        {
+            get
+            {
+                return restaurantname;
+            }
+            set
+            {
+                if (restaurantname != value)
+                {
+                    restaurantname = value;
+                    OnPropertyChanged("RestaurantName");
+                }
+
+            }
+        }
+
 
         //Properties for order history
         [PrimaryKey, AutoIncrement]
@@ -72,10 +90,11 @@ namespace SwiftFood
 
         public int OrderNumber; //Corresponding order - can be blank until saving
 
-        public OrderItem(Food food, int qty, string size) : base(food.Name, food.Price, food.Description)
+        public OrderItem(Food food, int qty, string size, string restname) : base(food.Name, food.Price, food.Description)
         {
             Qty = qty;
             Size = size;
+            RestaurantName = restname;
             CalculateTotal();
 
         }
@@ -85,13 +104,13 @@ namespace SwiftFood
         {
             switch (Size)
             {
-                case "small":
+                case "Small":
                     ItemTotal = Price * Qty;
                     break;
-                case "medium":
+                case "Medium":
                     ItemTotal = (Price + 2) * Qty;
                     break;
-                case "large":
+                case "Large":
                     ItemTotal = (Price + 4) * Qty;
                     break;
             }
@@ -148,10 +167,10 @@ namespace SwiftFood
             OrderComplete = false;
         }
 
-        public void AddToOrder(Food food,int qty, string size) 
+        public void AddToOrder(Food food,int qty, string size,string restname) 
             //Add supplied food to the order, creating an order item
         {
-            OrderItem addition = new OrderItem(food, qty, size);
+            OrderItem addition = new OrderItem(food, qty, size,restname);
             OrderItems.Add(addition);
             UpdateTotal();
             OnPropertyChanged("OrderItems");

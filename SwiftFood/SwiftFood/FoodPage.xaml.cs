@@ -13,7 +13,7 @@ namespace SwiftFood
     public partial class FoodPage : ContentPage
     {
         App app = (App)Application.Current;
-        string size = "small";
+        string size = "Small";
 
         OrderItem CurrentOrderItem;
 
@@ -21,7 +21,7 @@ namespace SwiftFood
         {
             InitializeComponent();
 
-            CurrentOrderItem = new OrderItem(app.ActiveFood, 1, "medium");
+            CurrentOrderItem = new OrderItem(app.ActiveFood, 1, "Medium",app.ActiveResturant.RestName);
             
             //Binding contexts
             txtItemTotal.BindingContext = CurrentOrderItem;
@@ -32,9 +32,9 @@ namespace SwiftFood
 
             //Dynamic Text
             Foodname.Text = "Item to Order: " + name;
-            smallprice.Text = CurrentOrderItem.PriceAtSize("small").ToString();
-            mediumprice.Text = CurrentOrderItem.PriceAtSize("medium").ToString();
-            largeprice.Text = CurrentOrderItem.PriceAtSize("large").ToString();
+            smallprice.Text = CurrentOrderItem.PriceAtSize("Small").ToString();
+            mediumprice.Text = CurrentOrderItem.PriceAtSize("Medium").ToString();
+            largeprice.Text = CurrentOrderItem.PriceAtSize("Large").ToString();
 
         }
        
@@ -77,7 +77,7 @@ namespace SwiftFood
         private void Calculate_Clicked(object sender, EventArgs e)
         { 
             int QTy = Convert.ToInt32(txtQTY.Text);
-            OrderItem orderItem = new OrderItem(app.ActiveFood,QTy, size);
+            OrderItem orderItem = new OrderItem(app.ActiveFood,QTy, size,app.ActiveResturant.RestName);
             string Itemprice = Convert.ToString(orderItem.ItemTotal);
             //Resetting the total Price so the user can see
             TotalPricetxt.Text = "Total Price: £";
@@ -88,20 +88,20 @@ namespace SwiftFood
         {
         
             size = "small";
-            CurrentOrderItem.Size = "small";
+            CurrentOrderItem.Size = "Small";
         }
 
         private void Medium_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
            
             size = "medium";
-            CurrentOrderItem.Size = "medium";
+            CurrentOrderItem.Size = "Medium";
         }
 
         private void Large_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             size = "large";
-            CurrentOrderItem.Size = "large";
+            CurrentOrderItem.Size = "Large";
         }
 
 
