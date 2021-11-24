@@ -47,9 +47,9 @@
             <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="85">
                 <StackLayout>
                     <Label Text="Total Price:" FontSize="Medium" FontAttributes="Bold" 
-                       TextColor="White" Padding="20,0.4"/>
+                       x:Name="txtTotalPrice" TextColor="White" Padding="20,0.4"/>
 
-                    <Label Text="Discount:" FontSize="Medium" FontAttributes="Bold" 
+                    <Label Text="Discount:" x:Name="txtDiscount" FontSize="Medium" FontAttributes="Bold" 
                        TextColor="White" Padding="20,0.4"/>
 
                     <Button Text="Complete and Pay" x:Name="btnComplete" HorizontalOptions="EndAndExpand" Clicked="btnComplete_Clicked"/>

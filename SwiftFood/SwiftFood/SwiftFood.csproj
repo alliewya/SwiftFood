@@ -14,14 +14,12 @@
     <None Remove="Resources\BentonSans Bold.otf" />
     <None Remove="Resources\BentonSans Medium.otf" />
     <None Remove="Resources\BentonSans Regular.otf" />
-    <None Remove="Resources\magicwandspell.mp3" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\BentonSans Bold.otf" />
     <EmbeddedResource Include="Resources\BentonSans Medium.otf" />
     <EmbeddedResource Include="Resources\BentonSans Regular.otf" />
-    <EmbeddedResource Include="Resources\magicwandspell.mp3" />
   </ItemGroup>
 
   <ItemGroup>
