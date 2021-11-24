@@ -4,11 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+
              BackgroundImage="successbg.png"
              x:Class="SwiftFood.Confirmation">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="35">
             <Image Source="icon.png" HorizontalOptions="CenterAndExpand"/>
+
             
             <Label Text="Enjoy Your Meal!" TextColor="{StaticResource SwiftOrange}"
                    FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
@@ -18,7 +20,7 @@
 
             <Button Text="Return to Browse" BackgroundColor="{StaticResource SwiftBlue}"
                     x:Name="btn_Return2Browse" Clicked="btn_Return2Browse_Clicked"/>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

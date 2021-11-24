@@ -1,6 +1,4 @@
-﻿using Android.Content.Res;
-using Android.Media;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,21 +13,17 @@ namespace SwiftFood
     public partial class Confirmation : ContentPage
     {
 
-
-
         public Confirmation()
         {
             InitializeComponent();
-
 
         }
 
         private async void btn_Return2Browse_Clicked(object sender, EventArgs e)
         {
+
             await Navigation.PushModalAsync(new MainPage());
         }
-
-
 
 
     }
