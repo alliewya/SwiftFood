@@ -52,6 +52,7 @@
                        TextColor="White" Padding="20,0.4" x:Name="txtDiscount"/>
 
 
+
                     <Button Text="Complete and Pay" x:Name="btnComplete" 
                             HorizontalOptions="EndAndExpand" Clicked="btnComplete_Clicked"/>
                 </StackLayout>

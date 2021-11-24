@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SwiftFood.PostCode"
              xmlns:local="clr-namespace:SwiftFood" x:Name="PostPage">
+    <ContentPage.Resources>
+
+       
+    </ContentPage.Resources>
+    
+    
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" Padding="40">
             <Grid VerticalOptions="FillAndExpand" >
@@ -11,9 +17,40 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Image x:Name="Logo" WidthRequest="200"  HeightRequest="200"></Image>
-                <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
-                    <Label Text="Enter Your Postcode" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="{StaticResource SwiftBlue}"/>
-                    <Entry  x:Name="PC" FontSize="36" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}"></Entry>
+                <StackLayout x:Name="OuterStack" Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="ValidityStates">
+                            <VisualState Name="Valid">
+                                <VisualState.Setters>
+                                    <Setter TargetName="txtPostcodeLabel"
+                                    Property="Label.Text"
+                                    Value="Enter Your Postcode" />
+                                    <Setter TargetName="PC"
+                                    Property="Entry.BackgroundColor"
+                                    Value="Green" />
+                                    <Setter TargetName="Find"
+                                    Property="Button.IsEnabled"
+                                    Value="True" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Invalid">
+                                <VisualState.Setters>
+                                    <Setter TargetName="txtPostcodeLabel"
+                                    Property="Label.Text"
+                                    Value="Enter A Valid Postcode" />
+                                    <Setter TargetName="PC"
+                                    Property="Entry.BackgroundColor"
+                                    Value="Pink" />
+                                    <Setter TargetName="Find"
+                                    Property="Button.IsEnabled"
+                                    Value="False" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+
+                    <Label Text="Enter Your Postcode" x:Name="txtPostcodeLabel" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="{StaticResource SwiftBlue}"/>
+                    <Entry  x:Name="PC" FontSize="36" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" TextChanged="PC_TextChanged"></Entry>
                     <Button Text="Find Restaurants"  HorizontalOptions="Center" FontAttributes="Bold" Padding="20" Margin="30" x:Name="Find" Clicked="Find_Clicked"></Button>
                 </StackLayout>
             </Grid>

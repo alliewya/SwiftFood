@@ -108,10 +108,10 @@ namespace SwiftFood
         }
 
 
-        public void AddToOrder(Food food, int qty, string size)
+        public void AddToOrder(Food food, int qty, string size, string restname)
         //Add supplied food to the order, creating an order item
         {
-            OrderItem addition = new OrderItem(food, qty, size);
+            OrderItem addition = new OrderItem(food, qty, size, restname);
             OrderItems.Add(addition);
             UpdateTotal();
             OnPropertyChanged("OrderItems");

@@ -12,8 +12,10 @@ namespace SwiftFood
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Checkout : ContentPage
     {
+
         App app = (App)Application.Current;
         
+
         public Checkout()
         {
             InitializeComponent();
@@ -24,10 +26,8 @@ namespace SwiftFood
             txtTotalPrice.Text = txtTotalPrice.Text + TotalPrice;
         }
 
-        private async void btnComplete_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new Confirmation()));            
-        }
+
+
 
         private void btnApplyCode_Clicked(object sender, EventArgs e)
         {
@@ -47,6 +47,7 @@ namespace SwiftFood
             {
                 txtDiscount.Text = "Discount: £" + "0.00";
             }
+
         }
 
         private async void btnComplete_Clicked(object sender, EventArgs e)
