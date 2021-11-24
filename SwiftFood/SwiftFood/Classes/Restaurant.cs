@@ -63,6 +63,8 @@ namespace SwiftFood
 
         public string RestAddress { get; set; }
 
+        public string RestPostcode { get; set; }
+
         public string RestOpeningHours { get; set; }
 
         public string OpeningHour => $"Opening Hours: {RestOpeningHours}";
