@@ -19,8 +19,15 @@ namespace SwiftFood
         bool Admin;
 
         public UserDetails(bool admin=false)
-        {
+        {   //User details coming from admin page - additional non user facing functionality
             InitializeComponent();
+
+            // Show login/register prompt page is no user is logged in
+            if(app.ActiveUser.UserID == 0)
+            {
+                loggedinlayout.IsVisible = false;
+                loggedoutlayout.IsVisible = true;
+            }
 
             //Enable admin functions
             Admin = admin;
@@ -37,20 +44,54 @@ namespace SwiftFood
 
         }
 
+        public UserDetails()
+        {
+            InitializeComponent();
+
+            Admin = false;
+            // Show login/register prompt page is no user is logged in
+            if (app.ActiveUser.UserID == 0)
+            {
+                loggedinlayout.IsVisible = false;
+                loggedoutlayout.IsVisible = true;
+            }
+
+            //View Model
+            userVM = new UserViewModel();
+            userVM.Load(app.ActiveUser);
+            this.BindingContext = userVM;
+
+        }
+
         private async void btnSaveUser_Clicked(object sender, EventArgs e)
         {
             User activeuser = app.ActiveUser;
             userVM.Save(ref activeuser);
             userVM.SaveToDB(activeuser);
 
-            await Navigation.PopAsync();
+            if (Admin) 
+            { await Navigation.PopAsync(); 
+            } else
+            {
+                bool reply = await DisplayAlert("Success", "Your details have been updated successfully!", "Return to homepage", "Make additional changes");
+                if (reply)
+                {
+                    await Navigation.PushModalAsync(new MainPage());
+                }
+
+            }
+            
         }
 
-        private void btnCancel_Clicked(object sender, EventArgs e)
+        private async void btnCancel_Clicked(object sender, EventArgs e)
         {
-            userVM = new UserViewModel();
-            userVM.Load(app.ActiveUser);
-            this.BindingContext = userVM;
+            bool reply = await DisplayAlert("Warning", "Revert changes back to saved? You will lose and changes you have made", "Discard Changes", "Keep Changes");
+            if (reply)
+            {
+                userVM = new UserViewModel();
+                userVM.Load(app.ActiveUser);
+                this.BindingContext = userVM;
+            }
         }
 
         private async void btnDelete_Clicked(object sender, EventArgs e)
@@ -66,6 +107,16 @@ namespace SwiftFood
                 await DisplayAlert("Success", "User Deleted", "OK");
             }
 
+        }
+
+        private async void btnlogin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
+
+        private async void btnregister_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserRegistration());
         }
     }
 }

@@ -18,6 +18,7 @@
 
             <Button Text="Return to Browse" BackgroundColor="{StaticResource SwiftBlue}"
                     x:Name="btn_Return2Browse" Clicked="btn_Return2Browse_Clicked"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -11800,28 +11800,34 @@ namespace SwiftFood.Droid
 			public const int pizza = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int successbg = 2131165332;
+			public const int shoppingbasketsolid = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int swiftfoodsmall = 2131165333;
+			public const int successbg = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int test_custom_background = 2131165334;
+			public const int swiftfoodsmall = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int titleimg = 2131165335;
+			public const int test_custom_background = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int tooltip_frame_dark = 2131165336;
+			public const int titlebasketimg = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int tooltip_frame_light = 2131165337;
+			public const int titleimg = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int userplussolid = 2131165338;
+			public const int tooltip_frame_dark = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int userssolid = 2131165339;
+			public const int tooltip_frame_light = 2131165339;
+			
+			// aapt resource value: 0x7F07009C
+			public const int userplussolid = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int userssolid = 2131165341;
 			
 			static Drawable()
 			{
@@ -13296,7 +13302,10 @@ namespace SwiftFood.Droid
 			public const int menulogo = 2131492868;
 			
 			// aapt resource value: 0x7F0C0005
-			public const int swiftfoodsmall = 2131492869;
+			public const int shoppingbasketsolid = 2131492869;
+			
+			// aapt resource value: 0x7F0C0006
+			public const int swiftfoodsmall = 2131492870;
 			
 			static Mipmap()
 			{

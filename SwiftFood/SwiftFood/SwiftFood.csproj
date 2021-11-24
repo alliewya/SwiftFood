@@ -14,18 +14,26 @@
     <None Remove="Resources\BentonSans Bold.otf" />
     <None Remove="Resources\BentonSans Medium.otf" />
     <None Remove="Resources\BentonSans Regular.otf" />
+    <None Remove="Resources\magicwandspell.mp3" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\BentonSans Bold.otf" />
     <EmbeddedResource Include="Resources\BentonSans Medium.otf" />
     <EmbeddedResource Include="Resources\BentonSans Regular.otf" />
+    <EmbeddedResource Include="Resources\magicwandspell.mp3" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v10.0\Mono.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

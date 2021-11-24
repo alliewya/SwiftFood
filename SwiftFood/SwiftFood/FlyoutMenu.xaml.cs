@@ -26,6 +26,17 @@ namespace SwiftFood
             });
             flyoutPageItems.Add(new FlyoutPageItem
             {
+                Title = "My Order",
+                TargetType = typeof(Basket)
+            });           
+            flyoutPageItems.Add(new FlyoutPageItem
+            {
+                Title = "My Details",
+                TargetType = typeof(UserDetails)
+            });
+
+            flyoutPageItems.Add(new FlyoutPageItem
+            {
                 Title = "Order History",
                 TargetType = typeof(OrderHistory)
             });

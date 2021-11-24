@@ -67,27 +67,7 @@
                 </StackLayout>
                 
             </Frame>
-<<<<<<< Updated upstream
-            <Label Text="Add to Basket"  FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="36"/>
-            <Label x:Name="Foodname" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
-            <Label Text="Size:" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
-            <RadioButton Content="small" GroupName="Size" x:Name="Small" IsChecked="True" CheckedChanged="Small_CheckedChanged" />
-            <RadioButton Content="medium" GroupName="Size" x:Name="Medium" IsChecked="False" CheckedChanged="Medium_CheckedChanged"/>
-            <RadioButton Content="large" GroupName="Size" x:Name="Large" IsChecked="False" CheckedChanged="Large_CheckedChanged"/>
-            <Label Text="Qty:" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
-            <StackLayout Orientation ="Horizontal" HorizontalOptions="Center">
-                <Entry Placeholder="" Text="1" IsReadOnly="True" x:Name="txtQTY" WidthRequest="100"></Entry>
-                <Button Text="+" WidthRequest="100" HorizontalOptions="Center"  x:Name="Qtyplus" Clicked="Qtyplus_Clicked"></Button>
-                <Button Text="-" WidthRequest="100" HorizontalOptions="Center" x:Name="Qtyminus" Clicked="Qtyminus_Clicked"></Button>
-            </StackLayout>
-            <Button Text="Click to get Price" x:Name="Calculate" Clicked="Calculate_Clicked" WidthRequest="100"></Button>
-            <Label Text="Total Price: £" x:Name="TotalPricetxt" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="28"></Label>
-            <StackLayout Orientation ="Horizontal" HorizontalOptions="Center">
-            <Button Text="Add" x:Name="Addtobasket" Clicked="Addtobasket_Clicked"></Button>
-            <Button Text="Cancel" x:Name="Return" Clicked="Return_Clicked" BackgroundColor="{StaticResource SwiftDarkGray}"></Button>
-            </StackLayout>
-=======
->>>>>>> Stashed changes
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

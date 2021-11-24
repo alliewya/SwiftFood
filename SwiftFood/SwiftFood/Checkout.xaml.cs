@@ -16,5 +16,10 @@ namespace SwiftFood
         {
             InitializeComponent();
         }
+
+        private async void btnComplete_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Confirmation());
+        }
     }
 }

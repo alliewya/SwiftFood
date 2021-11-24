@@ -14,7 +14,7 @@
             </StackLayout>
             <Label Text="{Binding RestAddress}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
             <Label Text="{Binding OpeningHour}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
-            <Button Text="Back to Resturants list" x:Name="Return" Clicked="Return_Clicked" HorizontalOptions="Center" WidthRequest="200" BackgroundColor="{StaticResource SwiftDarkGray}"></Button>
+            <!--<Button Text="Back to Resturants list" x:Name="Return" Clicked="Return_Clicked" HorizontalOptions="Center" WidthRequest="200" BackgroundColor="{StaticResource SwiftDarkGray}"></Button>-->
             <CollectionView x:Name="FoodCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" SelectionChanged="OnCollectionViewSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -35,8 +35,8 @@
                                 </StackLayout>
                             </Grid>
                         </StackLayout>-->
-                        <Frame BackgroundColor="{StaticResource SwiftLightGray}" BorderColor="#cdcdcd">
-                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="8,22,22,8"> 
+                        <Frame BackgroundColor="{StaticResource SwiftLightGray}" BorderColor="#cdcdcd" Padding="0">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20"> 
                             <Label Text="{Binding Name}" FontSize="24" TextColor="{StaticResource SwiftBlue}" FontAttributes="Bold"/>
                             <Label Text="{Binding Description}" TextColor="{StaticResource SwiftDarkGray}"/>
                             <Label Text="{Binding Price, StringFormat='£{0}'}" FontSize="20" TextColor="{StaticResource SwiftDarkGray}"/>
@@ -45,6 +45,15 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <StackLayout x:Name="basketbar" IsVisible="false" Orientation="Horizontal" Padding="20,10" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource SwiftBlue}">
+                <Label Text="Basket" FontSize="Large" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <StackLayout HorizontalOptions="Center">
+                    <Label x:Name="txtbaskettotal" TextColor="{StaticResource SwiftLightGray}"  Text="{Binding ItemCount, StringFormat='{0} items'}" HorizontalOptions="End"/>
+                    <Label x:Name="txtbasketitemqty" TextColor="{StaticResource SwiftLightGray}" Text="{Binding OrderTotal, StringFormat='£{0} Total'}" HorizontalOptions="End"/>
+                </StackLayout>
+                <Button Text="Checkout" HorizontalOptions="EndAndExpand" x:Name="btnCheckout" Clicked="btncheckout_Clicked"/>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

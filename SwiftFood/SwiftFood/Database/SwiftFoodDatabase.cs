@@ -53,7 +53,7 @@ namespace SwiftFood
             string hashedpassword = GetHashString(password);
 
             // Find username in database (todo -> rewrite sql to check for password also)
-            List<User> tempusers = Database.Query<User>("SELECT * from User WHERE Username = ?", username);
+            List<User> tempusers = Database.Query<User>("SELECT * from User WHERE Username = ?", username); //REMOVE CASE SENSITIVITY 
             Console.WriteLine(tempusers);
 
             foreach(User x in tempusers)
