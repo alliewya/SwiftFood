@@ -5,34 +5,49 @@
              Title="User Details">
     <ContentPage.Content>
         <StackLayout Margin="{StaticResource PageMargin}">
-            <StackLayout>
-                <Label Text="Username"/>
-                <Entry x:Name="entryUsername" Text="{Binding Username}"/>
-            </StackLayout>           
-            <StackLayout>
-                <Label Text="Password"/>
-                <Entry x:Name="entryPassword" IsPassword="True"  Text="{Binding Password}" IsEnabled="False"/>
+            <StackLayout x:Name="loggedinlayout">
+                <StackLayout>
+                    <Label Text="Username"/>
+                    <Entry x:Name="entryUsername" Text="{Binding Username}"/>
+                </StackLayout>           
+                <StackLayout>
+                    <Label Text="Password"/>
+                    <Entry x:Name="entryPassword" IsPassword="True"  Text="{Binding Password}" IsEnabled="False"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Email"/>
+                    <Entry x:Name="entryEmail"  Text="{Binding Email}"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Address Line 1"/>
+                    <Entry x:Name="entryAddress1"  Text="{Binding Address1}" />
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Address Line 2"/>
+                    <Entry x:Name="entryAddress2"  Text="{Binding Address2}" />
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Postcode"/>
+                    <Entry x:Name="entryPostcode"  Text="{Binding Postcode}"/>
+                </StackLayout>
+                <StackLayout>
+                <Button x:Name="btnSaveUser" Text="Save" Style="{StaticResource ButtonBlue}" Clicked="btnSaveUser_Clicked"/>
+                <Button x:Name="btnCancel" Text="Cancel" Style="{StaticResource ButtonAlt}" Clicked="btnCancel_Clicked"/>
+                <Button x:Name="btnDelete" Text="Delete User" IsVisible="false" FontAttributes="Bold" BackgroundColor="Red" Clicked="btnDelete_Clicked"/>
+                </StackLayout>
             </StackLayout>
-            <StackLayout>
-                <Label Text="Email"/>
-                <Entry x:Name="entryEmail"  Text="{Binding Email}"/>
-            </StackLayout>
-            <StackLayout>
-                <Label Text="Address Line 1"/>
-                <Entry x:Name="entryAddress1"  Text="{Binding Address1}" />
-            </StackLayout>
-            <StackLayout>
-                <Label Text="Address Line 2"/>
-                <Entry x:Name="entryAddress2"  Text="{Binding Address2}" />
-            </StackLayout>
-            <StackLayout>
-                <Label Text="Postcode"/>
-                <Entry x:Name="entryPostcode"  Text="{Binding Postcode}"/>
-            </StackLayout>
-            <StackLayout>
-            <Button x:Name="btnSaveUser" Text="Save" Style="{StaticResource ButtonBlue}" Clicked="btnSaveUser_Clicked"/>
-            <Button x:Name="btnCancel" Text="Cancel" Style="{StaticResource ButtonAlt}" Clicked="btnCancel_Clicked"/>
-            <Button x:Name="btnDelete" Text="Delete User" IsVisible="false" FontAttributes="Bold" BackgroundColor="Red" Clicked="btnDelete_Clicked"/>
+            <StackLayout x:Name="loggedoutlayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false" >
+                <Frame VerticalOptions="CenterAndExpand" BackgroundColor="{StaticResource SwiftBlue}" HorizontalOptions="CenterAndExpand">
+                <StackLayout Padding="10">
+                <Label Text="WHOOPS!" TextColor="White" FontSize="Header" FontFamily="BentonBold"/> <!-- This text is oversized and wrapping mid word intentionally for artisting reasons!-->
+                <Label VerticalOptions="CenterAndExpand" Margin="0,0,0,20"
+                       Text="Please Login or Create an Account to store your details" FontSize="Large" TextColor="{StaticResource SwiftLightGray}" FontFamily="BentonMedium"/>
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                    <Button Text="Login" x:Name="btnlogin" Clicked="btnlogin_Clicked"/>
+                    <Button Text="Create an Account" x:Name="btnregister" Clicked="btnregister_Clicked" Style="{StaticResource ButtonAlt}" />
+                </StackLayout>
+                </StackLayout>
+                </Frame>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.Basket">
+    <NavigationPage.TitleView>
+        <Image Source="titlebasketimg.png" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Margin="{StaticResource PageMargin}" Text="Your Order" FontSize="Large" TextColor="{StaticResource SwiftOrange}" />
+
+            <CollectionView x:Name="OrderItemsCollection" ItemsSource="{Binding OrderItems}" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" >
+                <!--SelectionChanged="OnCollectionViewSelectionChanged"-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="20,5" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Size}"/>
+                            </StackLayout>
+                            <Label Text="{Binding Qty}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Text="{Binding ItemTotal, StringFormat='£{0}'}" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Padding="20" BackgroundColor="{StaticResource SwiftBlue}" HorizontalOptions="Fill" VerticalOptions="EndAndExpand">
+                
+                <Grid HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="100" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Delivery Price" TextColor="White" Grid.Column="0" Grid.Row="0" HorizontalOptions="End"/>
+                    <Label Text="VAT" TextColor="White"  Grid.Column="0" Grid.Row="1" HorizontalOptions="End"/>
+                    <Label Text="Total Price" TextColor="White"  Grid.Column="0" Grid.Row="2" HorizontalOptions="End"/>
+
+                    <Label x:Name="txtdeliveryprice" TextColor="White"  Text="£0.00" HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"/>
+                    <Label x:Name="txtvatprice" TextColor="White"  Text="£0.00" HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="1"/>
+                    <Label x:Name="txttotalprice"  TextColor="White"  Text="{Binding OrderTotal, StringFormat='£{0}'}" HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="2"/>
+                    <StackLayout Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
+                        <Button Text="Checkout" x:Name="btncheckout" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"  Clicked="btncheckout_Clicked"/>
+                    </StackLayout>
+                </Grid>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

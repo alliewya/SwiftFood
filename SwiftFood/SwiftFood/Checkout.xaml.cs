@@ -48,5 +48,10 @@ namespace SwiftFood
                 txtDiscount.Text = "Discount: £" + "0.00";
             }
         }
+
+        private async void btnComplete_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Confirmation());
+        }
     }
 }

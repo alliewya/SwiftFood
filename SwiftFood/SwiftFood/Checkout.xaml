@@ -8,13 +8,17 @@
 
     
     <NavigationPage.TitleView>
-        <Frame BackgroundColor="{StaticResource SwiftBlue}" 
-                   CornerRadius="0" HeightRequest="50">
+
+
+        <!--<Frame BackgroundColor="{StaticResource SwiftBlue}" 
+                   CornerRadius="0" HeightRequest="40">
+
             <StackLayout Orientation="Horizontal">
                 <Image Source="icon.png" HorizontalOptions="Start" VerticalOptions="Center"
                        HeightRequest="65"/>
             </StackLayout>
-        </Frame>
+        </Frame>-->
+        <Image Source="titleimg.png" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
     </NavigationPage.TitleView>
     
     <ContentPage.Content>
@@ -46,6 +50,7 @@
 
                     <Label Text="Discount: £" FontSize="Medium" FontAttributes="Bold" 
                        TextColor="White" Padding="20,0.4" x:Name="txtDiscount"/>
+
 
                     <Button Text="Complete and Pay" x:Name="btnComplete" 
                             HorizontalOptions="EndAndExpand" Clicked="btnComplete_Clicked"/>

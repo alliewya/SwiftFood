@@ -12,14 +12,19 @@ namespace SwiftFood
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Confirmation : ContentPage
     {
+
         public Confirmation()
         {
             InitializeComponent();
+
         }
 
         private async void btn_Return2Browse_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new Browse()));
+
+            await Navigation.PushModalAsync(new MainPage());
         }
+
+
     }
 }
