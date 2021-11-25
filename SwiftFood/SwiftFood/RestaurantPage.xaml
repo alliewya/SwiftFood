@@ -12,6 +12,11 @@
             <Label Text="{Binding RestName}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="36"/>
             <Image Source="{Binding RestImageSource}" WidthRequest="150" HeightRequest="150" HorizontalOptions="End" />
             </StackLayout>
+            <Label Text="Phone Number: 01559 022 123" x:Name="phNumber" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
             <Label Text="{Binding RestAddress}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
             <Label Text="{Binding OpeningHour}" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
             <!--<Button Text="Back to Resturants list" x:Name="Return" Clicked="Return_Clicked" HorizontalOptions="Center" WidthRequest="200" BackgroundColor="{StaticResource SwiftDarkGray}"></Button>-->

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace SwiftFood
 {
@@ -77,6 +78,10 @@ namespace SwiftFood
             Navigation.PopModalAsync();
         }
 
-
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            string phonenumber = phNumber.Text; //get the number
+            PhoneDialer.Open(phonenumber);
+        }
     }
 }
