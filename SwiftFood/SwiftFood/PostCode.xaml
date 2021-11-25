@@ -50,7 +50,7 @@
                     </VisualStateManager.VisualStateGroups>
 
                     <Label Text="Enter Your Postcode" x:Name="txtPostcodeLabel" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="{StaticResource SwiftBlue}"/>
-                    <Entry  x:Name="PC" FontSize="36" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" TextChanged="PC_TextChanged"></Entry>
+                    <Entry  x:Name="PC" FontSize="36" Text="" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" TextChanged="PC_TextChanged"></Entry>
                     <Button Text="Find Restaurants"  HorizontalOptions="Center" FontAttributes="Bold" Padding="20" Margin="30" x:Name="Find" Clicked="Find_Clicked"></Button>
                 </StackLayout>
             </Grid>

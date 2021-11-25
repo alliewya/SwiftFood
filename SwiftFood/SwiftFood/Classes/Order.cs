@@ -4,6 +4,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using SQLite;
+using System.Linq;
 
 namespace SwiftFood
 {
@@ -145,6 +146,10 @@ namespace SwiftFood
 
         public decimal Discount;
 
+        public decimal DeliveryCost;
+
+        public decimal VAT;
+
         public int ItemCount;
 
         [PrimaryKey, AutoIncrement]
@@ -154,7 +159,9 @@ namespace SwiftFood
 
         public DateTime OrderDateTime;
 
-        public bool OrderComplete; 
+        public bool OrderComplete;
+
+        public int NumRests { get; set; }
 
         public Order()
         {
@@ -186,7 +193,7 @@ namespace SwiftFood
         }
 
         public void UpdateTotal()
-            //Calculate the total of all items in basket and add/apply discount
+            //Calculate the total of all items in basket and add/apply discount + add delivery price
         {
             OrderTotal = 0;
             ItemCount = 0;
@@ -196,9 +203,30 @@ namespace SwiftFood
                 OrderTotal += x.ItemTotal;
             }
 
+            CalculateDelivery();
+            OrderTotal += DeliveryCost;
+
             OrderTotal -= Discount;
             OnPropertyChanged("OrderTotal");
             OnPropertyChanged("ItemCount");
+
+            VAT = Math.Round((OrderTotal - (OrderTotal / 1.2m)),2);
+            OnPropertyChanged("VAT");
+        }
+
+        public void CalculateDelivery()
+        //Calculate the delivery cost
+        {
+            //Find the number of restaurants ordered from
+            List<string> restlist = new List<string>();
+            foreach(OrderItem x in OrderItems)
+            {
+                restlist.Add(x.RestaurantName); 
+            }
+            NumRests = restlist.Distinct().Count();
+            DeliveryCost = NumRests * 1.99m;
+            OnPropertyChanged("DeliveryCost");
+            OnPropertyChanged("NumRests");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
