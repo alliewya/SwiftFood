@@ -81,7 +81,7 @@ namespace SwiftFood
             pasta.Menu.Add(new Food("Ravioli", (decimal)9.99, "Perfect for catering the day of your daughters wedding"));
             pasta.Menu.Add(new Food("Spaghetti Carbonara", (decimal)8.99, "Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with water or eggs, and formed into sheets or other shapes"));
             pasta.Menu.Add(new Food("Spaghetti Bologenese", (decimal)8.99, "Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with water or eggs"));
-            pasta.Menu.Add(new Food("Ipus Lorem with Riccotta", (decimal)6.99, "Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with water or eggs"));
+            pasta.Menu.Add(new Food("Lorem Ipus with Riccotta", (decimal)6.99, "Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with water or eggs"));
 
             MasterRestaurantList.Add(pizza);
             MasterRestaurantList.Add(burger);

@@ -22,7 +22,7 @@
 
                     <Label Text="Size:" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
                     <StackLayout RadioButtonGroup.GroupName="Size" RadioButtonGroup.SelectedValue="{Binding Size}" x:Name="RadioSize" Orientation="Horizontal">
-                        <RadioButton Value="small"  x:Name="Small" IsChecked="False">
+                        <RadioButton Value="Small"  x:Name="Small" IsChecked="False">
                             <RadioButton.Content>
                                 <StackLayout>
                                     <Label x:Name="smallprice" Text="£14.99" FontSize="Large" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
@@ -30,7 +30,7 @@
                                 </StackLayout>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="medium"  x:Name="Medium" IsChecked="True">
+                        <RadioButton Value="Medium"  x:Name="Medium" IsChecked="True">
                             <RadioButton.Content>
                                 <StackLayout>
                                     <Label x:Name="mediumprice" Text="£14.99" FontSize="Large" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
@@ -38,7 +38,7 @@
                                 </StackLayout>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="large"  x:Name="Large" IsChecked="False">
+                        <RadioButton Value="Large"  x:Name="Large" IsChecked="False">
                             <RadioButton.Content>
                                 <StackLayout>
                                     <Label x:Name="largeprice" Text="£14.99" FontSize="Large" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>

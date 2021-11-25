@@ -120,11 +120,11 @@ namespace SwiftFood
         {
             switch (size)
             {
-                case "small":
+                case "Small":
                     return (Price);
-                case "medium":
+                case "Medium":
                     return (Price + 2);
-                case "large":
+                case "Large":
                     return (Price + 4);
                 default:
                     return (Price);
