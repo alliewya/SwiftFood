@@ -31,7 +31,8 @@ namespace SwiftFood
             //this.BindingContext = new OrderItem(app.ActiveFood, 1, "small");
 
             //Dynamic Text
-            Foodname.Text = "Item to Order: " + name;
+            //Foodname.Text = "Item to Order: " + name;
+            Foodname.Text =  name;
             smallprice.Text = CurrentOrderItem.PriceAtSize("Small").ToString();
             mediumprice.Text = CurrentOrderItem.PriceAtSize("Medium").ToString();
             largeprice.Text = CurrentOrderItem.PriceAtSize("Large").ToString();
@@ -104,6 +105,15 @@ namespace SwiftFood
             CurrentOrderItem.Size = "Large";
         }
 
-
+        private void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (e.NewValue > e.OldValue)
+            {
+                Qtyplus_Clicked(sender, e);
+            } else
+            {
+                Qtyminus_Clicked(sender, e);
+            }
+        }
     }
     }

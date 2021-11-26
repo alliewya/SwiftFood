@@ -37,7 +37,7 @@
                 <Label Text="Incorrect Username or Password" x:Name="txtLoginWarning" HorizontalOptions="Center" 
                        VerticalOptions="Center" Style="{StaticResource ValidationMessage}" FontSize="Medium"/>
                 <Label Text="Username" FontSize="Medium" FontAttributes="Bold" />
-                <Entry x:Name="txtUsername" Placeholder="Enter username or 'admin'"/>
+                <Entry x:Name="txtUsername"/>
 
 
                 <Label Text="Password" FontSize="Medium" FontAttributes="Bold" />

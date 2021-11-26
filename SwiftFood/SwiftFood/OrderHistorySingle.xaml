@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SwiftFood.Basket">
-    <NavigationPage.TitleView>
-        <Image Source="titlebasketimg.png" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
-    </NavigationPage.TitleView>
+             x:Class="SwiftFood.OrderHistorySingle">
     <ContentPage.Content>
         <StackLayout>
-            <Label Margin="{StaticResource PageMargin}" Text="Your Order" FontSize="Large" TextColor="{StaticResource SwiftOrange}" FontFamily="BentonBold"/>
-
-            <CollectionView x:Name="OrderItemsCollection" ItemsSource="{Binding OrderItems}" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" SelectionChanged="OnCollectionViewSelectionChanged" >
-                <!--SelectionChanged="OnCollectionViewSelectionChanged"-->
+            <StackLayout Orientation="Horizontal">
+            <Label Margin="20,20,0,20" Text="Your Order On" FontSize="Large" VerticalOptions="CenterAndExpand" TextColor="{StaticResource SwiftOrange}" FontFamily="BentonBold"/>
+            <DatePicker x:Name="dtorderdate" IsEnabled="False" VerticalOptions="CenterAndExpand" FontSize="Large" TextColor="{StaticResource SwiftOrange}" FontFamily="BentonBold"/>
+            </StackLayout>
+            <CollectionView x:Name="OrderItemsCollection" ItemsSource="{Binding OrderItems}" SelectionMode="None" ItemsLayout="VerticalGrid, 1" >
                 <CollectionView.Header>
                     <StackLayout Padding="20,5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource SwiftLightGray}">
                         <Grid HorizontalOptions="FillAndExpand">
@@ -29,7 +27,7 @@
                         </Grid>
                     </StackLayout>
                 </CollectionView.Header>
-                
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="20,5" Orientation="Vertical" HorizontalOptions="FillAndExpand">
@@ -47,6 +45,7 @@
                                 <Label  Grid.Column="1" Text="{Binding RestaurantName}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
                                 <Label  Grid.Column="2" Text="{Binding Qty}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
                                 <Label  Grid.Column="3" Text="{Binding ItemTotal, StringFormat='£{0}'}" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                <!--<Label  Grid.Column="3" Text="{Binding Price, StringFormat='£{0}'}" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>-->
 
                             </Grid>
                             <BoxView Color="#cdcdcd" HeightRequest="1" WidthRequest="260" HorizontalOptions="Center" VerticalOptions="Center"></BoxView>
@@ -56,7 +55,7 @@
             </CollectionView>
 
             <StackLayout Padding="20" BackgroundColor="{StaticResource SwiftBlue}" HorizontalOptions="Fill" VerticalOptions="EndAndExpand">
-                
+
                 <Grid HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="100">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -75,11 +74,8 @@
                     <Label x:Name="txtdeliveryprice" TextColor="White"  Text="{Binding DeliveryCost, StringFormat='£{0}'}" HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"/>
                     <Label x:Name="txtvatprice" TextColor="White"  Text="{Binding VAT, StringFormat='£{0}'}" HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="1"/>
                     <Label x:Name="txttotalprice"  TextColor="White"  Text="{Binding OrderTotal, StringFormat='£{0}'}" HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="2"/>
-                    <StackLayout Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
-                        <Button Text="Checkout" x:Name="btncheckout" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"  Clicked="btncheckout_Clicked"/>
-                    </StackLayout>
                 </Grid>
-                
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

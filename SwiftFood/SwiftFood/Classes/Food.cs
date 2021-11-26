@@ -78,7 +78,10 @@ namespace SwiftFood
 
         }
 
+        public Food()
+        {
 
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

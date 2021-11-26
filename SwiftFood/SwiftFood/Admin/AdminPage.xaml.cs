@@ -30,5 +30,34 @@ namespace SwiftFood
         {
             await Navigation.PushModalAsync(new NavigationPage(new PostCode()));
         }
+
+        private async void btnOrders_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListOrder());
+        }
+
+
+        //private void salestoday()
+        //{
+        //    var search = new DateTime();
+        //    search = DateTime.Now;
+
+        //    SwiftFoodDatabase STDB = new SwiftFoodDatabase();
+
+        //    var OrderHistoryList = STDB.GetAllOrders();
+
+        //    var queriedorder = from Ord in OrderHistoryList where (Ord.OrderDateTime.Date == search.Date) select Ord;
+
+        //    decimal sales = 0;
+
+        //    foreach (Order x in queriedorder)
+        //    {
+        //        sales += x.OrderTotal;
+        //    }
+
+        //    saleslabel.Text = sales.ToString();
+
+        //}
+
     }
 }

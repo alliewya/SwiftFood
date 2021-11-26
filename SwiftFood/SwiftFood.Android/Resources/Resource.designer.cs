@@ -11827,10 +11827,13 @@ namespace SwiftFood.Droid
 			public const int tooltip_frame_light = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int userplussolid = 2131165341;
+			public const int userorders = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int userssolid = 2131165342;
+			public const int userplussolid = 2131165342;
+			
+			// aapt resource value: 0x7F07009F
+			public const int userssolid = 2131165343;
 			
 			static Drawable()
 			{

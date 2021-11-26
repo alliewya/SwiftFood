@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.BasketEdit">
+    <ContentPage.Resources>
+            <Style TargetType="RadioButton">
+                <Setter Property="ControlTemplate"
+                    Value="{StaticResource RadioButtonTemplate}" />
+            </Style>
+        </ContentPage.Resources>
+
+        <ContentPage.Content>
+            <StackLayout BackgroundColor="{StaticResource SwiftBlue}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <Image x:Name="Logo" WidthRequest="200"  HeightRequest="120" Margin="24,0,24,10" Source="icon.png"></Image>
+
+                <Frame BackgroundColor="{StaticResource SwiftLightGray}" Margin="{StaticResource PageMargin}"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="{StaticResource PageMargin}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label Text="Change Order"  FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="32"/>
+                        <Label x:Name="Foodname" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="24"/>
+
+                        <Label Text="Size:" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
+                        <StackLayout RadioButtonGroup.GroupName="Size" RadioButtonGroup.SelectedValue="{Binding Size}" x:Name="RadioSize" Orientation="Horizontal">
+                            <RadioButton Value="Small"  x:Name="Small">
+                                <RadioButton.Content>
+                                    <StackLayout>
+                                        <Label x:Name="smallprice" Text="£14.99" FontSize="Large" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="Small"  HorizontalOptions="Center" VerticalOptions="End" />
+                                    </StackLayout>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton Value="Medium"  x:Name="Medium">
+                                <RadioButton.Content>
+                                    <StackLayout>
+                                        <Label x:Name="mediumprice" Text="£14.99" FontSize="Large" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="Medium"  HorizontalOptions="Center" VerticalOptions="End" />
+                                    </StackLayout>
+                                </RadioButton.Content>
+                            </RadioButton>
+                            <RadioButton Value="Large"  x:Name="Large">
+                                <RadioButton.Content>
+                                    <StackLayout>
+                                        <Label x:Name="largeprice" Text="£14.99" FontSize="Large" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="Large"  HorizontalOptions="Center" VerticalOptions="End" />
+                                    </StackLayout>
+                                </RadioButton.Content>
+                            </RadioButton>
+                        </StackLayout>
+                        <Label Text="Qty:" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
+
+                        <StackLayout Orientation ="Horizontal" HorizontalOptions="Center">
+                            <Entry Placeholder="" Text="{Binding Qty}" IsReadOnly="True" x:Name="txtQTY" WidthRequest="100"></Entry>
+                            <Button Text="-" HorizontalOptions="Center" x:Name="Qtyminus" Clicked="Qtyminus_Clicked"></Button>
+                            <Button Text="+" HorizontalOptions="Center"  x:Name="Qtyplus" Clicked="Qtyplus_Clicked"></Button>
+                        </StackLayout>
+
+                        <!--<Button Text="Click to get Price" x:Name="Calculate" Clicked="Calculate_Clicked" WidthRequest="100"></Button>-->
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="New Total: £" x:Name="TotalPricetxt" FontFamily="BentonBold" VerticalOptions="EndAndExpand" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="28"></Label>
+                            <Label Text="{Binding ItemTotal}" x:Name="txtItemTotal"  VerticalOptions="EndAndExpand" TextColor="{StaticResource SwiftBlue}" FontSize="28"/>
+                        </StackLayout>
+                    <StackLayout VerticalOptions="EndAndExpand">
+                        <StackLayout Orientation ="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Button Text="Update" x:Name="Addtobasket" Clicked="Updatebasket_Clicked"></Button>
+                            <Button Text="Cancel" x:Name="Return" Clicked="Return_Clicked" BackgroundColor="{StaticResource SwiftDarkGray}"></Button>
+                        </StackLayout>
+                        <Button Text="Remove From Order" x:Name="btnRemove" Clicked="btnRemove_Clicked" BackgroundColor="Red"></Button>
+                    </StackLayout>
+                </StackLayout>
+
+                </Frame>
+            </StackLayout>
+        </ContentPage.Content>
+</ContentPage>

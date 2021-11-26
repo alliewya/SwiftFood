@@ -22,9 +22,18 @@ namespace SwiftFood
             InitializeComponent();
             //NearPostcode.Text = "Restaurants Near " + postcode + ":";
             NearPostcode.Text = postcode;
-            var restaurants = app.ActiveRestaurants;
-            RestaurantCollection.ItemsSource = restaurants;
 
+            //var restaurants = app.ActiveRestaurants;
+            //RestaurantCollection.ItemsSource = restaurants;
+
+
+            string shortpostcode = (postcode.Remove(postcode.Length - 3)).Trim();
+
+            string x = postcode.Remove(postcode.Length - 3).Trim().ToLower();
+            Console.WriteLine(postcode.Remove(postcode.Length - 3).Trim().ToLower());
+
+            IEnumerable<Restaurant> nearbyrest = from Rest in app.ActiveRestaurants where (Rest.RestPostcode.Remove(Rest.RestPostcode.Length - 3).Trim().ToLower().Contains(shortpostcode.ToLower())) select Rest;
+            RestaurantCollection.ItemsSource = nearbyrest;
 
         }
 
@@ -60,6 +69,17 @@ namespace SwiftFood
 
             //txtScroll.Text = e.VerticalOffset.ToString() + " " + RestaurantCollection.Height.ToString();
             scrollprompt.Opacity = (1 - (e.VerticalOffset / (RestaurantCollection.Height-76)));
+        }
+
+        private async void Postcode_Tapped(object sender, EventArgs e)
+        {
+            if(app.ActiveUser.UserID == 0)
+            {
+                await Navigation.PushAsync(new PostCode());
+            } else
+            {
+                await Navigation.PushAsync(new UserDetails());
+            }
         }
     }
 }

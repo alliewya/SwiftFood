@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiftFood.ListOrder">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="20" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout  HorizontalOptions="EndAndExpand">
+                    <Label Text="Filter By Date"  HorizontalOptions="EndAndExpand"/>
+                    <DatePicker DateSelected="DatePicker_DateSelected"></DatePicker>
+                </StackLayout>
+                <Button Text="Clear" x:Name="btnClear" Clicked="btnClear_Clicked" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <Frame Padding="20">
+                <ListView x:Name="ordersLV">
+                    <!--ItemSelected="ordersLV_ItemSelected"-->
+                    <ListView.Header>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  BackgroundColor="{StaticResource SwiftLightGray}" >
+                            <Grid HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="ID" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="0"/>
+                                <Label  Text="Date" FontSize="Medium" VerticalOptions="Center"  Grid.Column="1"/>
+                                <Label Text="Username" FontSize="Medium" VerticalOptions="Center"  Grid.Column="2"/>
+                                <Label Text="Total" FontSize="Medium"  HorizontalOptions="EndAndExpand" VerticalOptions="Center"  Grid.Column="3"/>
+                            </Grid>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        
+                                        
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                                                                                              
+                                    <Label Text="{Binding OrderID}" FontSize="Small" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="0"/>
+                                    <DatePicker  Date="{Binding OrderDateTime}" IsEnabled="False" FontSize="Small" VerticalOptions="Center"  Grid.Column="1"/>
+                                    <Label Text="{Binding OrderUsername}" FontSize="Medium" VerticalOptions="Center"  Grid.Column="2"/>
+                                    <Label Text="{Binding OrderTotal, StringFormat='£{0}'}" FontSize="Medium" TextColor="{StaticResource SwiftDarkGray}" HorizontalOptions="EndAndExpand" VerticalOptions="Center"  Grid.Column="3"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

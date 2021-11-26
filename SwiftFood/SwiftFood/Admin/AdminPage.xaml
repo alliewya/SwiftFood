@@ -8,6 +8,7 @@
             <Grid VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -23,10 +24,18 @@
                     <ImageButton Source="userplussolid.png" x:Name="btnAddUser" Clicked="btnAddUser_Clicked"
                     HorizontalOptions="Center" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
                     <Label Text="Add User" FontSize="Large" TextColor="{StaticResource SwiftBlue}" HorizontalOptions="Center"/>
+                </StackLayout>                
+                <StackLayout Grid.Column="0" Grid.Row="1">
+                    <ImageButton Source="userorders.png" x:Name="btnOrders" Clicked="btnOrders_Clicked"
+                    HorizontalOptions="Center" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"/>
+                    <Label Text="Orders" FontSize="Large" TextColor="{StaticResource SwiftBlue}" HorizontalOptions="Center"/>
                 </StackLayout>
 
             </Grid>
-            
+            <!--<StackLayout>
+                <Label Text="Sales Today: "></Label>
+                <Label x:Name="saleslabel" Text="0.00"/>
+            </StackLayout>-->
             <StackLayout>
                     <Button Text="Log Out" x:Name="btnLogout" Clicked="btnLogout_Clicked"/>
             </StackLayout>

@@ -35,7 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Admin\ListOrder.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Admin\ListUsers.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BasketEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Browse.xaml">
@@ -58,6 +64,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="OrderHistory.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="OrderHistorySingle.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PostCode.xaml">
       <Generator>MSBuild:Compile</Generator>

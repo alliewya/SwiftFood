@@ -12,6 +12,7 @@ namespace SwiftFood
     //A food item present in an order
     {
         
+
         private decimal itemtotal;
 
         public decimal ItemTotal
@@ -89,7 +90,7 @@ namespace SwiftFood
         [PrimaryKey, AutoIncrement]
         public int OrderItemID { get; set; } //Unique
 
-        public int OrderNumber; //Corresponding order - can be blank until saving
+        public int OrderNumber { get; set; } //Corresponding order - can be blank until saving
 
         public OrderItem(Food food, int qty, string size, string restname) : base(food.Name, food.Price, food.Description)
         {
@@ -97,6 +98,11 @@ namespace SwiftFood
             Size = size;
             RestaurantName = restname;
             CalculateTotal();
+
+        }
+
+        public OrderItem() : base()
+        {
 
         }
 
@@ -142,24 +148,24 @@ namespace SwiftFood
         [Ignore]
         public ObservableCollection<OrderItem> OrderItems { get; set; }
 
-        public decimal OrderTotal;
+        public decimal OrderTotal { get; set; }
 
-        public decimal Discount;
+        public decimal Discount { get; set; }
 
-        public decimal DeliveryCost;
+        public decimal DeliveryCost { get; set; }
 
-        public decimal VAT;
+        public decimal VAT { get; set; }
 
-        public int ItemCount;
+        public int ItemCount { get; set; }
 
         [PrimaryKey, AutoIncrement]
         public int OrderID { get; set; }
 
-        public string OrderUsername;
+        public string OrderUsername { get; set; }
 
-        public DateTime OrderDateTime;
+        public DateTime OrderDateTime { get; set; }
 
-        public bool OrderComplete;
+        public bool OrderComplete { get; set; }
 
         public int NumRests { get; set; }
 

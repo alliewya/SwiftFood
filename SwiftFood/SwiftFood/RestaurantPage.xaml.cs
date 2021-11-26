@@ -33,6 +33,11 @@ namespace SwiftFood
                 basketbar.IsVisible = true;
             }
 
+
+            Addstars();
+
+
+
         }
 
         private async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -67,6 +72,23 @@ namespace SwiftFood
             }
         }
 
+        public void Addstars()
+        {
+
+            List<Label> stars = new List<Label>();
+            stars.Add(star1);
+            stars.Add(star2);
+            stars.Add(star3);
+            stars.Add(star4);
+            stars.Add(star5);
+
+            for (int i = 0; i < app.ActiveResturant.RestRating; i++)
+            {
+                stars[i].Text = "⭐";
+            }
+                
+        }
+
         private async void btncheckout_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Basket());
@@ -81,6 +103,7 @@ namespace SwiftFood
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             string phonenumber = phNumber.Text; //get the number
+            phonenumber = phonenumber.Trim();
             PhoneDialer.Open(phonenumber);
         }
     }

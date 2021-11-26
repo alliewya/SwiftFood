@@ -42,7 +42,7 @@ namespace SwiftFood
         {
             get
             {
-                return RestRating;
+                return restRating;
             }
             set
             {
@@ -64,6 +64,8 @@ namespace SwiftFood
         public string RestAddress { get; set; }
 
         public string RestPostcode { get; set; }
+
+        public string RestPhone { get; set; }
 
         public string RestOpeningHours { get; set; }
 

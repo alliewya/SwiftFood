@@ -23,27 +23,32 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Padding="10" Spacing="1.5">
+            <StackLayout Padding="{StaticResource PageMargin}" Spacing="1.5">
                 <Label Text="Checkout"  FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="36"/>
-                <Label Text="Add Discount Code" FontSize="Medium"/>
+                <StackLayout VerticalOptions="CenterAndExpand" x:Name="notemptylayout">
+                    <Label Text="Add Discount Code" FontSize="Medium"/>
                 
-                <StackLayout Orientation="Horizontal" >
-                    <Entry Placeholder="Enter Code(ABC123)" x:Name="txtDiscountCode"/>
-                    <Button Text="Apply Code" x:Name="btnApplyCode" HorizontalOptions="EndAndExpand" Clicked="btnApplyCode_Clicked"/>
+                    <StackLayout Orientation="Horizontal" Padding="0,10">
+                        <Entry Placeholder="Enter Code(ABC123)" x:Name="txtDiscountCode"/>
+                        <Button Text="Apply Code" x:Name="btnApplyCode" HorizontalOptions="EndAndExpand" Clicked="btnApplyCode_Clicked"/>
+                    </StackLayout>
+
+                    <Label Text="Email Address" FontSize="Medium"/>
+                    <Entry Placeholder="Enter email here" Text="{Binding Email}" Keyboard="Email" x:Name="txtEmail"/>
+
+                    <Label Text="Address Line 1" FontSize="Medium"/>
+                    <Entry Text="{Binding Address1}" x:Name="txtAdd1"/>
+                    <Label Text="Address Line 2" FontSize="Medium"/>
+                    <Entry Text="{Binding Address2}"  x:Name="txtAdd2"/>
+                    <Label Text="Post Code" FontSize="Medium"/>
+                    <Entry Text="{Binding Postcode}" x:Name="txtPostcode" MaxLength="8"/>
                 </StackLayout>
-
-                <Label Text="Email Address" FontSize="Medium"/>
-                <Entry Placeholder="Enter email here" Keyboard="Email" x:Name="txtEmail"/>
-
-                <Label Text="Address Line 1" FontSize="Medium"/>
-                <Entry Placeholder="" x:Name="txtAdd1"/>
-                <Label Text="Address Line 2" FontSize="Medium"/>
-                <Entry Placeholder="" x:Name="txtAdd2"/>
-                <Label Text="Post Code" FontSize="Medium"/>
-                <Entry Placeholder="" x:Name="txtPostcode" MaxLength="8"/>
+            </StackLayout>
+            <StackLayout x:Name="emptylayout" IsVisible="false" Padding="50">
+                <Label Text="You need to add items to your basket before you can check out"> </Label>
             </StackLayout>
             
-            <Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="95" VerticalOptions="EndAndExpand">
+            <!--<Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="95" VerticalOptions="EndAndExpand">
                 <StackLayout>
                     <Label Text="Total Price: £" FontSize="Medium" FontAttributes="Bold" 
                        TextColor="White" Padding="20,0.4" x:Name="txtTotalPrice"/>
@@ -56,7 +61,46 @@
                     <Button Text="Complete and Pay" x:Name="btnComplete" 
                             HorizontalOptions="EndAndExpand" Clicked="btnComplete_Clicked"/>
                 </StackLayout>
-            </Frame>
+            </Frame>--><!--<Frame BackgroundColor="{StaticResource SwiftBlue}" HeightRequest="95" VerticalOptions="EndAndExpand">
+                <StackLayout>
+                    <Label Text="Total Price: £" FontSize="Medium" FontAttributes="Bold" 
+                       TextColor="White" Padding="20,0.4" x:Name="txtTotalPrice"/>
+
+                    <Label Text="Discount: £" FontSize="Medium" FontAttributes="Bold" 
+                       TextColor="White" Padding="20,0.4" x:Name="txtDiscount"/>
+
+
+
+                    <Button Text="Complete and Pay" x:Name="btnComplete" 
+                            HorizontalOptions="EndAndExpand" Clicked="btnComplete_Clicked"/>
+                </StackLayout>
+            </Frame>-->
+            <StackLayout Padding="20" BackgroundColor="{StaticResource SwiftBlue}" HorizontalOptions="Fill" VerticalOptions="EndAndExpand">
+
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="10" HeightRequest="100">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <!--<RowDefinition Height="*"/>-->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Discount" x:Name="lbldiscount" IsVisible="false" TextColor="White" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="End" />
+                    <Label Text="Total Price" TextColor="White"  Grid.Column="0" Grid.Row="1" HorizontalOptions="End"/>
+                    <!--<Label Text=" " TextColor="White"  Grid.Column="0" Grid.Row="2" HorizontalOptions="End" BackgroundColor="BlueViolet"/>-->
+
+                    <Label x:Name="txtDiscount" IsVisible="false" TextColor="White" HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"/>
+                    <Label x:Name="txtTotalPrice" TextColor="White"  HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="1"/>
+                    <Label  TextColor="White"  HorizontalOptions="End" FontAttributes="Bold" Grid.Column="1" Grid.Row="2"/>
+                     <StackLayout Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
+                        <Button Text="Checkout" x:Name="btncheckout" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"  Clicked="btnComplete_Clicked"/>
+                    </StackLayout>
+                </Grid>
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

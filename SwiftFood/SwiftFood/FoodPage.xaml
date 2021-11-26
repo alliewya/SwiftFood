@@ -13,14 +13,14 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource SwiftBlue}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
-            <Image x:Name="Logo" WidthRequest="200"  HeightRequest="120" Margin="24,0,24,30" Source="icon.png"></Image>
+            <Image x:Name="Logo" WidthRequest="200"  HeightRequest="120" Margin="24,0,24,20" Source="icon.png"></Image>
 
             <Frame BackgroundColor="{StaticResource SwiftLightGray}" Margin="{StaticResource PageMargin}"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <StackLayout Padding="{StaticResource PageMargin}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <Label Text="Add to Basket"  FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" FontSize="36"/>
-                    <Label x:Name="Foodname" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"/>
+                    <Label Text="Add to Basket"  FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" VerticalOptions="Center" FontSize="28"/>
+                    <Label x:Name="Foodname" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="24"/>
 
-                    <Label Text="Size:" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
+                    <Label Text="Size:" FontFamily="BentonMedium" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
                     <StackLayout RadioButtonGroup.GroupName="Size" RadioButtonGroup.SelectedValue="{Binding Size}" x:Name="RadioSize" Orientation="Horizontal">
                         <RadioButton Value="Small"  x:Name="Small" IsChecked="False">
                             <RadioButton.Content>
@@ -47,20 +47,21 @@
                             </RadioButton.Content>
                         </RadioButton>
                     </StackLayout>
-                    <Label Text="Qty:" FontFamily="BentonBold" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
+                    <Label Text="Qty:" FontFamily="BentonMedium" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
 
                     <StackLayout Orientation ="Horizontal" HorizontalOptions="Center">
-                        <Entry Placeholder="" Text="{Binding Qty}" IsReadOnly="True" x:Name="txtQTY" WidthRequest="100"></Entry>
-                        <Button Text="-" HorizontalOptions="Center" x:Name="Qtyminus" Clicked="Qtyminus_Clicked"></Button>
-                        <Button Text="+" HorizontalOptions="Center"  x:Name="Qtyplus" Clicked="Qtyplus_Clicked"></Button>
+                        <Entry Placeholder="" Text="{Binding Qty}" IsReadOnly="True" x:Name="txtQTY" HorizontalOptions="Center" HorizontalTextAlignment="Center" WidthRequest="100"></Entry>
+                        <!--<Button Text="-" HorizontalOptions="Center" WidthRequest="18" BackgroundColor="{StaticResource SwiftDarkGray}" FontAttributes="Bold" FontSize="24" Padding="5" BorderColor="{StaticResource SwiftBlue}" x:Name="Qtyminus" Clicked="Qtyminus_Clicked"></Button>
+                        <Button Text="+" HorizontalOptions="Center" WidthRequest="18" x:Name="Qtyplus" Clicked="Qtyplus_Clicked"></Button>-->
+                        <Stepper x:Name="Stepper" Maximum="7" Increment="1" Minimum="1" Value="1" HorizontalOptions="Center" ValueChanged="OnStepperValueChanged" />
                     </StackLayout>
 
                     <!--<Button Text="Click to get Price" x:Name="Calculate" Clicked="Calculate_Clicked" WidthRequest="100"></Button>-->
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Total Price: £" x:Name="TotalPricetxt" FontFamily="BentonBold" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="28"></Label>
-                        <Label Text="{Binding ItemTotal}" x:Name="txtItemTotal"/>
+                    <StackLayout Orientation="Horizontal" Padding="0,10">
+                        <Label Text="Total Price: " x:Name="TotalPricetxt" FontFamily="BentonMedium" VerticalOptions="Center" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftBlue}" FontSize="20"></Label>
+                        <Label Text="{Binding ItemTotal, StringFormat='£{0}'}"  FontFamily="BentonBold" x:Name="txtItemTotal"  VerticalOptions="Center" TextColor="{StaticResource SwiftBlue}" FontSize="28"/>
                     </StackLayout>
-                    <StackLayout Orientation ="Horizontal" HorizontalOptions="Center">
+                    <StackLayout Orientation ="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
                         <Button Text="Add" x:Name="Addtobasket" Clicked="Addtobasket_Clicked"></Button>
                         <Button Text="Cancel" x:Name="Return" Clicked="Return_Clicked" BackgroundColor="{StaticResource SwiftDarkGray}"></Button>
                     </StackLayout>

@@ -27,7 +27,7 @@
                                     Value="Enter Your Postcode" />
                                     <Setter TargetName="PC"
                                     Property="Entry.BackgroundColor"
-                                    Value="Green" />
+                                    Value="LightGreen" />
                                     <Setter TargetName="Find"
                                     Property="Button.IsEnabled"
                                     Value="True" />
@@ -50,8 +50,8 @@
                     </VisualStateManager.VisualStateGroups>
 
                     <Label Text="Enter Your Postcode" x:Name="txtPostcodeLabel" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="{StaticResource SwiftBlue}"/>
-                    <Entry  x:Name="PC" FontSize="36" Text="" HorizontalTextAlignment="Center" TextColor="{StaticResource SwiftOrange}" TextChanged="PC_TextChanged"></Entry>
-                    <Button Text="Find Restaurants"  HorizontalOptions="Center" FontAttributes="Bold" Padding="20" Margin="30" x:Name="Find" Clicked="Find_Clicked"></Button>
+                    <Entry  x:Name="PC" FontSize="36" Text="" HorizontalTextAlignment="Center" ReturnType="Done"  TextColor="{StaticResource SwiftOrange}" TextChanged="PC_TextChanged"></Entry>
+                    <Button Text="Find Restaurants" HorizontalOptions="Center" FontAttributes="Bold" Padding="20" Margin="30" x:Name="Find" Clicked="Find_Clicked"></Button>
                 </StackLayout>
             </Grid>
             <Label Text="Login" HorizontalOptions="Center" VerticalOptions="EndAndExpand" FontSize="Medium" TextColor="{StaticResource SwiftBlue}" FontAttributes="Italic">

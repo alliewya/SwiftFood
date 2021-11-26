@@ -15,20 +15,24 @@
                        HeightRequest="100"/>
                     <StackLayout VerticalOptions="Center" Padding="20,0,0,0">
                         <Label Text="Restaurants Near" VerticalOptions="Center" FontFamily="BentonBold" HorizontalOptions="Center" TextColor="{StaticResource SwiftLightGray}" FontSize="24"/>
-                        <Label x:Name="NearPostcode" FontFamily="BentonRegular"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource SwiftLightGray}" FontSize="28"/>
+                        <Label x:Name="NearPostcode" FontFamily="BentonRegular"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource SwiftLightGray}" FontSize="28">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Postcode_Tapped"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                 </StackLayout>
             </Frame>
             <!--<Frame BackgroundColor="Aqua">-->
                 <StackLayout Margin="20">
-                    <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
+                    <SearchBar TextChanged="SearchBar_TextChanged" Placeholder="Search by food type"></SearchBar>
                 </StackLayout>
             <!--</Frame>-->
-            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" VerticalScrollBarVisibility="Always"  SelectionChanged="OnCollectionViewSelectionChanged" Scrolled="OnCollectionViewScrolled">
+            <CollectionView x:Name="RestaurantCollection" SelectionMode="Single" ItemsLayout="VerticalGrid, 1" VerticalScrollBarVisibility="Always"  SelectionChanged="OnCollectionViewSelectionChanged" Scrolled="OnCollectionViewScrolled" EmptyView="Sorry, No Restaurants In Your Area">
             <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame>
-                            <RelativeLayout  Margin="0,15">  <!--It is stupid to use relative layout here over grid but grid has a bug with images! And this gives a nice effect! -->
+                            <RelativeLayout  Margin="0,10">  <!--It is stupid to use relative layout here over grid but grid has a bug with images! And this gives a nice effect! -->
                             <Image Source="{Binding RestImageSource}" BackgroundColor="Black"  Aspect="AspectFill"
                                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
                                     />

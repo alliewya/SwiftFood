@@ -28,7 +28,22 @@ namespace SwiftFood
         }
 
 
+        //Event handle for selecting an order item from collection view
+        async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+            //On selection change in collection, open a new resturant page using selected movie object
+            if (((CollectionView)sender).SelectedItem != null)
+            {
+                OrderItem selected = e.CurrentSelection.FirstOrDefault() as OrderItem;
+                await Navigation.PushAsync(new BasketEdit(selected));
+                ((CollectionView)sender).SelectedItem = null;
+            }
+            else
+            {
+                return;
+            }
+        }
 
 
 
